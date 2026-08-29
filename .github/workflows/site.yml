@@ -1,0 +1,59 @@
+name: Site
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Never let two deploys race. Do not cancel a running deploy, since a
+# half-applied Pages deployment is worse than a slightly stale one.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install babashka
+        uses: DeLaGuardo/setup-clojure@v13
+        with:
+          bb: latest
+
+      - name: Test
+        run: bb test
+
+      - name: Build
+        run: bb build
+
+      - name: Check the build is not empty
+        run: |
+          test -f _site/index.html || { echo "no index.html generated"; exit 1; }
+          test -f _site/css/screen.css || { echo "static assets missing"; exit 1; }
+          ! grep -q '{{site-base}}' _site/index.html || { echo "unrendered template variable"; exit 1; }
+
+      - name: Upload the Pages artifact
+        if: github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
