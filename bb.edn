@@ -1,29 +1,50 @@
-;; bb.edn - the jlt-commons website generator.
+;; bb.edn — local preview for the jlt-commons organization site.
 ;;
-;; A trimmed port of a private engine by the same author, reduced to a
-;; single site. The one addition is base-path support (see
-;; site.core/base-path), which lets a jlt-commons member project build a
-;; site served at /<repo>/ rather than at a domain root.
-{:paths ["src" "test" "resources"]
- :deps  {markdown-clj/markdown-clj {:mvn/version "1.11.4"}}
- :tasks
- {:requires ([site.config :as config])
+;; The generator is not here. It lives in jlt-commons/docs-engine, shared
+;; with every project site in the organization, and CI checks it out at a
+;; pinned tag (.github/workflows/site.yml). These tasks exist only so the
+;; site can be previewed without pushing, and they are the one place that
+;; needs a checkout of the engine on disk.
+{:tasks
+ {:requires ([babashka.fs :as fs])
 
-  test  {:doc "Run the full test suite"
-         :requires ([clojure.test :as t]
-                    [site.markdown-test]
-                    [site.core-test])
-         :task (let [{:keys [fail error]} (t/run-tests 'site.markdown-test 'site.core-test)]
-                 (when (pos? (+ fail error)) (System/exit 1)))}
+  :init
+  (do
+    (def docs-engine-repo "https://github.com/jlt-commons/docs-engine")
 
-  build {:doc "Generate the site into _site/"
-         :requires ([site.core :as core])
-         :task (core/generate! (config/site))}
+    (defn docs-engine-dir
+      "Where the engine is checked out: $JLT_DOCS_ENGINE, else a sibling
+       directory, else the usual spot. nil when none of them exist."
+      []
+      (let [home (System/getProperty "user.home")]
+        (->> [(System/getenv "JLT_DOCS_ENGINE")
+              "../docs-engine"
+              (str home "/dev/jlt-commons/docs-engine")]
+             (remove nil?)
+             (filter (fn [d] (fs/exists? (fs/file d "bb.edn"))))
+             first)))
 
-  clean {:doc "Delete the _site/ build output"
-         :requires ([site.core :as core])
-         :task (core/clean! (config/site))}
+    (defn site-task
+      "Runs one of the engine's tasks against this site."
+      [task & args]
+      (if-let [engine (docs-engine-dir)]
+        (let [argv (into ["bb" task (str (fs/cwd))] (remove nil? args))
+              res  (apply shell {:dir (str engine) :continue true} argv)]
+          (when-not (zero? (:exit res)) (System/exit (:exit res))))
+        (do
+          (println "The docs engine is not checked out anywhere I looked:")
+          (println "  $JLT_DOCS_ENGINE, ../docs-engine, ~/dev/jlt-commons/docs-engine")
+          (println)
+          (println "  git clone" docs-engine-repo "../docs-engine")
+          (println)
+          (println "CI does not need this — it checks the engine out itself.")
+          (System/exit 1)))))
 
-  serve {:doc "Build, then serve _site/ locally (bb serve [port], default 3000)"
-         :requires ([site.core :as core])
-         :task (core/serve! (config/site) (first *command-line-args*))}}}
+  site:build {:doc "Generate the site into _site/"
+              :task (site-task "build")}
+
+  site:serve {:doc "Build, then serve _site/ locally (bb site:serve [port], default 3000)"
+              :task (site-task "serve" (first *command-line-args*))}
+
+  site:clean {:doc "Delete the _site/ build output"
+              :task (site-task "clean")}}}
