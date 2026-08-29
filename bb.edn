@@ -1,0 +1,29 @@
+;; bb.edn - the jlt-commons website generator.
+;;
+;; Ported from the b12n-docs engine and trimmed to a single site. The one
+;; addition is base-path support (see site.core/base-path), which lets a
+;; jlt-commons member project build a site served at /<repo>/ rather than
+;; at a domain root.
+{:paths ["src" "test" "resources"]
+ :deps  {markdown-clj/markdown-clj {:mvn/version "1.11.4"}}
+ :tasks
+ {:requires ([site.config :as config])
+
+  test  {:doc "Run the full test suite"
+         :requires ([clojure.test :as t]
+                    [site.markdown-test]
+                    [site.core-test])
+         :task (let [{:keys [fail error]} (t/run-tests 'site.markdown-test 'site.core-test)]
+                 (when (pos? (+ fail error)) (System/exit 1)))}
+
+  build {:doc "Generate the site into _site/"
+         :requires ([site.core :as core])
+         :task (core/generate! (config/site))}
+
+  clean {:doc "Delete the _site/ build output"
+         :requires ([site.core :as core])
+         :task (core/clean! (config/site))}
+
+  serve {:doc "Build, then serve _site/ locally (bb serve [port], default 3000)"
+         :requires ([site.core :as core])
+         :task (core/serve! (config/site) (first *command-line-args*))}}}
