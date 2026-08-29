@@ -1,0 +1,26 @@
+;; Configuration for the jlt-commons organization site, read by the shared
+;; docs-engine (https://github.com/jlt-commons/docs-engine).
+;;
+;; Build it locally with `bb site:serve`. CI builds and publishes it from
+;; .github/workflows/site.yml.
+{;; Empty, because this site is served at the domain root,
+ ;; https://jlt-commons.github.io. A member project is served at
+ ;; https://jlt-commons.github.io/<repo>/ and sets :base-path "/<repo>"
+ ;; instead. See site.core/base-path in the engine.
+ :base-path   ""
+
+ :title       "jlt-commons"
+ :description "A community-led home for Jolt libraries and tooling."
+
+ ;; The organization, not this repository. The nav's GitHub link should
+ ;; land on the org page rather than on the site's own source, which is
+ ;; why this overrides the engine's derive-from-origin default.
+ :github-url  "https://github.com/jlt-commons"
+
+ ;; docs/img holds the mark the homepage renders. Engine static assets
+ ;; (css, highlight.js, mermaid) come from the engine itself; anything
+ ;; belonging to this site lives here.
+ :asset-dirs  ["img"]
+
+ ;; Relative to docs/templates/.
+ :home-template "home.html"}
