@@ -26,7 +26,6 @@
       <ul class="links">
         <li {% ifequal page "home" %}class="selected"{% endifequal %}><a href="{{site-base}}/">Home</a></li>
         <li {% ifequal page "docs" %}class="selected"{% endifequal %}><a href="{{site-docs-href}}">Docs</a></li>
-        {% if site-infra-href %}<li {% ifequal page "infra" %}class="selected"{% endifequal %}><a href="{{site-infra-href}}">Infra</a></li>{% endif %}
         {% if site-github-url %}<li><a href="{{site-github-url}}" target="_blank" rel="noopener noreferrer">GitHub</a></li>{% endif %}
         <li><button class="theme-toggle" type="button" onclick="toggleTheme()" aria-label="Toggle light/dark theme">◐</button></li>
       </ul>
@@ -104,9 +103,9 @@
       var content = document.querySelector(".doc-content");
       if (content) content.insertBefore(bar, content.firstChild);
 
-      // /guide/print.html is built from never-collapsed HTML, but a reader
-      // hitting Ctrl-P on an ordinary doc page prints THIS DOM, so open
-      // everything first, then restore whatever they actually had open.
+      // Printing (Ctrl-P) an ordinary doc page prints THIS DOM as it
+      // currently stands, so open every collapsed section first, then
+      // restore whatever the reader actually had open once printing is done.
       var restore = [];
       window.addEventListener("beforeprint", function () {
         restore = [];

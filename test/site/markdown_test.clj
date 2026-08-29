@@ -21,7 +21,7 @@
 (deftest slugify-strips-inline-code-and-decodes-asterisk-entity
   ;; same class of leak, via &#42; for a literal "*" inside inline code
   ;; (e.g. dynamic-var names like *out*/*err*) — verified against a real
-  ;; guide heading (mcp-server.md).
+  ;; guide heading (guide-page.md).
   ;; Undecoded, &#42; would leak "42" ("out42"). Decoded, the * is dropped as
   ;; punctuation. The double hyphen before "is" is GitHub's: the whole
   ;; "…)" token vanished and left the spaces that flanked it.
@@ -54,12 +54,12 @@
 ;; or a fenced block, both already protected by markdown-clj's own code
 ;; handling) gets its first _..._ pair silently turned into <i>...</i>,
 ;; eating two of its underscores. Real trigger: a project's own README H1
-;; is its snake_case package name (b12n_llama_cpp_flutter) rendered
+;; is its snake_case package name (example_native_lib) rendered
 ;; through this exact pipeline as the site homepage's <h1>.
 
 (deftest render-markdown-intraword-underscore-does-not-become-italics
-  (is (= "<h1>b12n&#95;llama&#95;cpp&#95;flutter</h1>"
-         (md/render-markdown "# b12n_llama_cpp_flutter"))))
+  (is (= "<h1>example&#95;native&#95;lib</h1>"
+         (md/render-markdown "# example_native_lib"))))
 
 (deftest render-markdown-intraword-underscore-in-plain-paragraph-text
   ;; same bug, mid-sentence, not just in a heading -- proves the fix isn't
@@ -90,8 +90,8 @@
   ;; the end-to-end path that actually surfaced the bug: a real project
   ;; README's H1 (its snake_case package name) rendered as the site
   ;; homepage's page title and heading id.
-  (let [html (md/render-doc-page "# b12n_llama_cpp_flutter\n\nBody text.")]
-    (is (= "b12n_llama_cpp_flutter" (:title html)))))
+  (let [html (md/render-doc-page "# example_native_lib\n\nBody text.")]
+    (is (= "example_native_lib" (:title html)))))
 
 (deftest assign-heading-ids-gives-every-heading-a-clean-id
   (let [html (md/assign-heading-ids (md/render-markdown "# Title\n\n## Why `-force_load` is mandatory\n\n## The build script"))]
@@ -142,19 +142,19 @@
 
 (deftest rewrite-doc-links-leaves-a-slash-containing-link-untouched
   ;; a link with '/' in its target (e.g. a cross-repo relative path like
-  ;; mcp-server.md's real link to ../../../b12n-lambda-jolt/docs/guide/
+  ;; guide-page.md's real link to ../../../sample-project/docs/guide/
   ;; mcp-extensions.md) is NOT a same-site internal doc link — rewriting
   ;; its .md -> .html would disguise it as one even though it still 404s.
   ;; Left exactly as markdown-clj rendered it.
   (let [html (md/render-markdown
-              "[ext](../../../b12n-lambda-jolt/docs/guide/mcp-extensions.md) and [bare](other-page.md)")
+              "[ext](../../../sample-project/docs/guide/mcp-extensions.md) and [bare](other-page.md)")
         out  (md/rewrite-doc-links html)]
-    (is (str/includes? out "href='../../../b12n-lambda-jolt/docs/guide/mcp-extensions.md'"))
+    (is (str/includes? out "href='../../../sample-project/docs/guide/mcp-extensions.md'"))
     (is (str/includes? out "href='other-page.html'"))))
 
 (deftest rewrite-nested-doc-links-matches-flat-rewrite-doc-links-byte-for-byte
   ;; For a root-level doc linking to other root-level docs (the shape
-  ;; every project before b12n-gamedev-course has), the nested-aware
+  ;; every project without nested subdirectories has), the nested-aware
   ;; rewriter must produce IDENTICAL output to plain rewrite-doc-links —
   ;; this is what makes it safe to use uniformly (see site.core/render-all-docs).
   (let [html (md/render-markdown "[a](other-page.md) and [b](symbol-extraction.md#some-anchor)")
@@ -166,7 +166,7 @@
 
 (deftest rewrite-nested-doc-links-cross-directory-descends-and-climbs
   ;; A doc one level deep linking to a sibling subdirectory's page —
-  ;; the real b12n-gamedev-course shape (phase-1-foundations/02-...
+  ;; a real nested-project shape (phase-1-foundations/02-...
   ;; linking to ../phase-2-arcade-classics/01-pong.md).
   (let [html (md/render-markdown "[pong](../phase-2-arcade-classics/01-pong.md)")
         out  ((md/rewrite-nested-doc-links "phase-1-foundations/02-the-game-loop.md") html)]
@@ -188,9 +188,9 @@
   ;; to nil and is left completely untouched — the nested rewriter keeps
   ;; the same 'honest dead link' philosophy for genuinely external refs.
   (let [html (md/render-markdown
-              "[ext](../../../b12n-lambda-jolt/docs/guide/mcp-extensions.md)")
+              "[ext](../../../sample-project/docs/guide/mcp-extensions.md)")
         out  ((md/rewrite-nested-doc-links "phase-1-foundations/02-the-game-loop.md") html)]
-    (is (str/includes? out "href='../../../b12n-lambda-jolt/docs/guide/mcp-extensions.md'"))))
+    (is (str/includes? out "href='../../../sample-project/docs/guide/mcp-extensions.md'"))))
 
 (deftest render-doc-page-full-pipeline
   (let [md-text (str "# Query API\n\n"
@@ -230,7 +230,7 @@
 (deftest unwrap-hard-wraps-treats-a-plus-prefixed-wrap-as-prose-continuation
   ;; a coincidental wrap starting with "+" mid-sentence (prev line is
   ;; ordinary prose, no blank line before it) must NOT become a new list
-  ;; item — this is the exact shape of mcp-server.md's real wrap bug.
+  ;; item — this is the exact shape of guide-page.md's real wrap bug.
   (let [text   "it's `a` + `b` + `c`\n+ `d` + `e`, all keyed."
         joined (md/unwrap-hard-wraps text)]
     (is (= "it's `a` + `b` + `c` + `d` + `e`, all keyed." joined))

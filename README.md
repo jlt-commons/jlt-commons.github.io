@@ -30,10 +30,14 @@ Governance text is deliberately **not** duplicated here. This site links to the 
 documents in [`meta`](https://github.com/jlt-commons/meta), because two copies of a rule
 become two different rules.
 
+Mermaid fences are not supported. `markdown.clj` still rewrites ```` ```mermaid ```` blocks
+into `<pre class="mermaid">`, but the mermaid.js bundle that would render them isn't
+vendored in this site, so a diagram renders as plain, unstyled source text.
+
 ## Using this generator for your own project
 
-Any jlt-commons project is welcome to. Copy `src/`, `resources/` and `bb.edn`, then set
-`:base-path` in `src/site/config.clj` to your repo name:
+Any jlt-commons project is welcome to. Copy `src/`, `resources/`, `test/` and `bb.edn`,
+then set `:base-path` in `src/site/config.clj` to your repo name:
 
 ```clojure
 :base-path "/your-repo"

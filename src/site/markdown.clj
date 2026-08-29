@@ -66,7 +66,7 @@
 
 (defn escape-intraword-underscores
   "Backslash-escapes a `_` flanked by word characters on both sides (e.g.
-   the `_` in `b12n_llama_cpp_flutter`), so markdown-clj's underscore-
+   the `_` in `example_native_lib`), so markdown-clj's underscore-
    emphasis transformer doesn't render it as <i>...</i>.
 
    markdown.common/make-separator (the `_` -> <i> transformer) partitions
@@ -181,7 +181,7 @@
    plain text instead (this is what real Markdown authoring looks like:
    genuine new lists start at a blank line or a sibling item, not
    mid-sentence). Verified against two real occurrences of this exact
-   shape: mcp-server.md's `+ \\`net.b12n.tsj.symbols\\` + ...` (column 0,
+   shape: guide-page.md's `+ \\`net.example.proj.symbols\\` + ...` (column 0,
    follows prose -> continuation) and index.md's indented
    `  + \\`bb refs <name> <path>\\`...` (follows its own list item's
    marker line, but MORE indented than it -> continuation, not a nested

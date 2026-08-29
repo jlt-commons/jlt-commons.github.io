@@ -13,12 +13,12 @@
    \"/name\" (served under a subdirectory). Accepts nil, \"\", \"name\",
    \"/name\" and \"/name/\".
 
-   This is the one behavioral addition over the b12n-docs engine, which
-   assumes every site is root-hosted because all 57 of its sites are. A
-   jlt-commons member project is served at /<repo>/, where a root-relative
-   \"/css/screen.css\" silently loads the ORG site's stylesheet instead of
-   its own. The page still renders, wearing the wrong clothes, which is why
-   this needs a test rather than a look."
+   This is the one behavioral addition over the engine this is ported
+   from, which assumes every site is root-hosted because all 57 of its
+   sites are. A jlt-commons member project is served at /<repo>/, where a
+   root-relative \"/css/screen.css\" silently loads the ORG site's
+   stylesheet instead of its own. The page still renders, wearing the
+   wrong clothes, which is why this needs a test rather than a look."
   [raw]
   (if (str/blank? raw)
     ""
@@ -41,24 +41,25 @@
 
 (defn discover-doc-ids
   "Auto-discovered nav order: every *.md anywhere under guide-dir (any
-   depth), as POSIX-style paths relative to guide-dir (mirrors
-   site.infra/discover-infra-ids). Ordered directory-by-directory so it
-   reads top-to-bottom like the guide's intended sequence: directories
+   depth), as POSIX-style paths relative to guide-dir. Ordered
+   directory-by-directory so it reads top-to-bottom like the guide's
+   intended sequence: directories
    themselves in sorted order (guide-dir's own root first, since '' sorts
    before any name), each directory's own files pinning ITS index.md
    first if present, else sorted. Used when a project has no
    projects/<name>/docpages.edn curated-order override.
 
-   For a flat guide-dir (every project before b12n-gamedev-course — zero
-   subdirectories under docs/guide/) this reduces to exactly the
-   previous flat behavior: one directory group (the root), its files
-   sorted with index.md pinned first. Plain alphabetical sort on full
-   relative paths would get a nested project's per-directory index.md
-   wrong when numbered siblings start above 01 (verified against
-   b12n-gamedev-course's phase-3-four-lisps/, whose files are index.md,
-   02-port-your-pong.md, 03-closing.md — alphabetical-on-full-path
-   would order index.md LAST, after 02/03, since digits sort below the
-   letter 'i'); grouping by directory and pinning per-group avoids that."
+   For a flat guide-dir (the shape every project had before one
+   introduced nested subdirectories under docs/guide/) this reduces to
+   exactly the previous flat behavior: one directory group (the root),
+   its files sorted with index.md pinned first. Plain alphabetical sort
+   on full relative paths would get a nested project's per-directory
+   index.md wrong when numbered siblings start above 01 (verified
+   against a sample nested project's phase-3/, whose files are
+   index.md, 02-port-your-pong.md, 03-closing.md — alphabetical-on-full-
+   path would order index.md LAST, after 02/03, since digits sort below
+   the letter 'i'); grouping by directory and pinning per-group avoids
+   that."
   [guide-dir]
   (let [root    (.toPath (io/file guide-dir))
         all-rel (->> (file-seq (io/file guide-dir))
@@ -74,7 +75,7 @@
                  (sort (keys by-dir))))))
 
 (defn render-all-docs
-  "doc-id -> {:title :toc-html :body-html :print-html :slug}, for every doc-id.
+  "doc-id -> {:title :toc-html :body-html :slug}, for every doc-id.
    Always renders via md/rewrite-nested-doc-links (built per doc-id,
    from its own path relative to guide-dir) rather than defaulting to
    plain rewrite-doc-links — the nested-aware rewriter produces
@@ -84,13 +85,10 @@
   (into {}
         (for [doc-id doc-ids]
           (let [raw (slurp (io/file guide-dir doc-id))
-                {:keys [title toc-html body-html print-html]}
+                {:keys [title toc-html body-html]}
                 (md/render-doc-page raw (md/rewrite-nested-doc-links doc-id))]
-            ;; print-html must be carried through: site.infra/render-print-page
-            ;; needs the never-collapsed rendering, because a closed <details>
-            ;; prints nothing. Dropping it here silently emptied print.html.
             [doc-id {:title title :toc-html toc-html :body-html body-html
-                     :print-html print-html :slug (slug-of doc-id)}]))))
+                     :slug (slug-of doc-id)}]))))
 
 (defn nav-items [rendered doc-ids base]
   (mapv (fn [doc-id]
@@ -230,7 +228,7 @@
   "Builds, then serves output-dir at http://localhost:<port> until interrupted."
   [project port-str]
   (generate! project)
-  (let [port       (Integer/parseInt port-str)
+  (let [port       (Integer/parseInt (or port-str "3000"))
         output-dir (:output-dir project)]
     (println "Serving" (str output-dir) "at http://localhost:" port)
     ;; :ip "127.0.0.1" — local-only dev preview server; without an

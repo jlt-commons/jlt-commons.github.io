@@ -24,8 +24,9 @@ you want to build. Read
 [how to propose a project](https://github.com/jlt-commons/meta/blob/main/PROPOSING.md),
 then [open an issue](https://github.com/jlt-commons/meta/issues).
 
-**Maintain something.** Some projects here are looking for maintainers. Say which one in
-an issue and it is usually yours. We are far shorter of maintainers than of applicants.
+**Maintain something.** If a project here is looking for a maintainer, say which one in
+an issue and it is usually yours. When that happens, we are usually far shorter of
+maintainers than of applicants.
 
 ## How decisions get made
 

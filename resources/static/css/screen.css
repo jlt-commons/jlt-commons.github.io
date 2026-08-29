@@ -870,10 +870,6 @@ body.home section {
   border-bottom: 1px solid var(--border);
 }
 
-body.home section.surface {
-  background: var(--bg-raised);
-}
-
 body.home section h2 {
   font-size: 1.5rem;
   font-weight: 700;
@@ -934,43 +930,6 @@ section p code,
   body.home section {
     padding: 3rem 1.25rem;
   }
-}
-
-/* ---- Print-chapter / print-guide ---- */
-
-.print-chapter-link {
-  display: block;
-  font-size: 0.75rem;
-  color: var(--text-dim);
-  text-decoration: none;
-  margin-bottom: 1rem;
-}
-
-.print-chapter-link:hover {
-  color: var(--accent);
-}
-
-.print-page {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.print-trigger {
-  display: inline-block;
-  margin: 1.5rem 0;
-  padding: 0.5rem 1rem;
-  background: var(--bg-raised);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  color: var(--text);
-  font-family: var(--font-mono);
-  font-size: 0.875rem;
-  cursor: pointer;
-}
-
-.print-trigger:hover {
-  border-color: var(--accent);
-  color: var(--accent);
 }
 
 /* ---- Collapsible reference sections -------------------------------------
