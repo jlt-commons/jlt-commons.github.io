@@ -50,17 +50,20 @@
 
 {% block head %}
 <style>
+  /* section padding, the section divider, and h2 sizing on this page come
+     from screen.css's `body.home section` / `body.home section h2` rules,
+     which win on specificity over anything set here, so they are
+     deliberately not repeated in this block. */
   .hero { max-width: 46rem; margin: 0 auto; padding: 4rem 1.5rem 2.5rem; text-align: center; }
   .hero-mark { display: block; margin: 0 auto 1.5rem; }
   .hero h1 { font-size: clamp(2rem, 6vw, 3rem); margin: 0 0 0.75rem; letter-spacing: -0.02em; }
   .hero-tagline { font-size: 1.25rem; color: var(--text); margin: 0 0 1rem; }
   .hero-note { font-size: 0.95rem; color: var(--text-dim); margin: 0; }
-  .tracks { max-width: 52rem; margin: 0 auto; padding: 0 1.5rem 1rem;
+  .tracks { max-width: 52rem; margin: 0 auto;
             display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 1.5rem; }
   .tracks article { background: var(--bg-raised); border: 1px solid var(--border);
                     border-radius: var(--radius); padding: 1.5rem; }
-  .tracks h2 { margin-top: 0; font-size: 1.15rem; }
-  .cta { max-width: 46rem; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  .cta { max-width: 46rem; margin: 0 auto; }
   .cta ul { line-height: 2; }
 </style>
 {% endblock %}

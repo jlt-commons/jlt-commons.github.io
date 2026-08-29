@@ -22,18 +22,18 @@
                                          instead of sitting in a
                                          mismatched box.
      --bg-raised   #131a24  Panel     - chrome surfaces: nav, sidebar,
-                                         TOC, mermaid card, footer.
+                                         TOC, footer.
      --border      #25303d  Hairline  - dividers, card borders.
      --text        #c9d1d9  Ink       - the page's own body-text color;
                                          --code-comment and others are
                                          chosen to read well against it.
      --text-dim    #8b96a3  Ink, dim  - captions, secondary nav/UI.
-     --accent      #e8a259  Copper    - solder/wire: the material of
+     --accent      #ff7a3d  Copper    - solder/wire: the material of
                                          native FFI glue. Used for links,
                                          selected states, inline code,
                                          the brand parens. The one accent
                                          hue on the page.
-     --accent-hover #f4c284           - hover/brighter copper.
+     --accent-hover #ffa06b           - hover/brighter copper.
 
    Code (13 --code-* tokens, one set per theme face above, see the
    "Code highlighting" section further down this file for the full
@@ -702,33 +702,6 @@ pre code {
 .hljs-deletion {
   color: var(--code-deletion-fg);
   background-color: var(--code-deletion-bg);
-}
-
-/* ---- Mermaid diagram container ----
-   mermaid.initialize's theme argument (base.html) is resolved from
-   data-theme at page-load time, not hardcoded; this is the card the
-   SVG sits in, so it reads as an intentional panel (dark or light,
-   matching the page) rather than a stray mismatched rectangle. Note:
-   mermaid does NOT re-theme for print: the SVG's colors were baked
-   in at whatever theme was active on-screen when the page loaded. */
-
-.mermaid,
-pre.mermaid {
-  background: var(--bg-raised);
-  border-color: var(--border);
-  padding: 1.5rem;
-  overflow-x: auto;
-  overflow-y: hidden;
-  display: flex;
-  justify-content: center;
-  white-space: pre-wrap; /* only visible for the instant before mermaid.js
-                             replaces this with rendered SVG */
-}
-
-.mermaid svg,
-pre.mermaid svg {
-  max-width: 100%;
-  height: auto;
 }
 
 /* ---- Footer ---- */
