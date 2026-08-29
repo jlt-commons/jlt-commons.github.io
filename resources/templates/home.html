@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block body-class %}home{% endblock %}
+
+{% block content %}
+<header class="hero">
+  <img class="hero-mark" src="{{site-base}}/img/mark.svg" width="120" height="120"
+       alt="The jlt-commons mark: a lightning bolt inside an open ring">
+  <h1>jlt-commons</h1>
+  <p class="hero-tagline">
+    A community-led home for <a href="https://github.com/jolt-lang/jolt">Jolt</a>
+    libraries and tooling.
+  </p>
+  <p class="hero-note">
+    Not an official Jolt project. The language and the libraries its core team maintains
+    live in <a href="https://github.com/jolt-lang">jolt-lang</a>.
+  </p>
+</header>
+
+<section class="tracks">
+  <article>
+    <h2>Adoption</h2>
+    <p>
+      A Jolt project whose maintainer can no longer look after it, taken over so the
+      community keeps a working version. We ask the current owner first, every time, and
+      we prefer a transfer over a fork so the stars and the issue history come along.
+    </p>
+  </article>
+  <article>
+    <h2>Incubation</h2>
+    <p>
+      New community work. Ports of widely used Clojure libraries, and new libraries the
+      core team does not want to own. The bar is a real gap and someone willing to
+      maintain it, which is deliberately low while Jolt is this young.
+    </p>
+  </article>
+</section>
+
+<section class="cta">
+  <h2>Getting involved</h2>
+  <p>
+    You do not need to be a member. Open an issue or a pull request on any repository here.
+  </p>
+  <ul>
+    <li><a href="https://github.com/jlt-commons/meta/issues">Propose a project</a>, or volunteer to maintain one</li>
+    <li><a href="https://github.com/jlt-commons/meta/blob/main/GOVERNANCE.md">Governance</a> and <a href="https://github.com/jlt-commons/meta/blob/main/PROPOSING.md">how to propose</a>, both short</li>
+    <li>Talk to us on <strong>#jolt</strong> on the <a href="https://clojurians.net">Clojurians Slack</a></li>
+  </ul>
+</section>
+{% endblock %}
+
+{% block head %}
+<style>
+  .hero { max-width: 46rem; margin: 0 auto; padding: 4rem 1.5rem 2.5rem; text-align: center; }
+  .hero-mark { display: block; margin: 0 auto 1.5rem; }
+  .hero h1 { font-size: clamp(2rem, 6vw, 3rem); margin: 0 0 0.75rem; letter-spacing: -0.02em; }
+  .hero-tagline { font-size: 1.25rem; color: var(--text); margin: 0 0 1rem; }
+  .hero-note { font-size: 0.95rem; color: var(--text-dim); margin: 0; }
+  .tracks { max-width: 52rem; margin: 0 auto; padding: 0 1.5rem 1rem;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 1.5rem; }
+  .tracks article { background: var(--bg-raised); border: 1px solid var(--border);
+                    border-radius: var(--radius); padding: 1.5rem; }
+  .tracks h2 { margin-top: 0; font-size: 1.15rem; }
+  .cta { max-width: 46rem; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  .cta ul { line-height: 2; }
+</style>
+{% endblock %}
