@@ -166,21 +166,21 @@
 
 (deftest rewrite-nested-doc-links-cross-directory-descends-and-climbs
   ;; A doc one level deep linking to a sibling subdirectory's page —
-  ;; a real nested-project shape (phase-1-foundations/02-...
-  ;; linking to ../phase-2-arcade-classics/01-pong.md).
-  (let [html (md/render-markdown "[pong](../phase-2-arcade-classics/01-pong.md)")
-        out  ((md/rewrite-nested-doc-links "phase-1-foundations/02-the-game-loop.md") html)]
-    (is (str/includes? out "href='../phase-2-arcade-classics/01-pong.html'"))))
+  ;; a real nested-project shape (section-one/02-...
+  ;; linking to ../section-two/01-first-page.md).
+  (let [html (md/render-markdown "[first](../section-two/01-first-page.md)")
+        out  ((md/rewrite-nested-doc-links "section-one/02-second-page.md") html)]
+    (is (str/includes? out "href='../section-two/01-first-page.html'"))))
 
 (deftest rewrite-nested-doc-links-same-directory-sibling
-  (let [html (md/render-markdown "[eyes](03-following-eyes.md)")
-        out  ((md/rewrite-nested-doc-links "phase-1-foundations/02-the-game-loop.md") html)]
-    (is (str/includes? out "href='../phase-1-foundations/03-following-eyes.html'"))))
+  (let [html (md/render-markdown "[third](03-third-page.md)")
+        out  ((md/rewrite-nested-doc-links "section-one/02-second-page.md") html)]
+    (is (str/includes? out "href='../section-one/03-third-page.html'"))))
 
 (deftest rewrite-nested-doc-links-root-to-subdirectory
-  (let [html (md/render-markdown "[phase0](phase-0-first-contact/index.md)")
+  (let [html (md/render-markdown "[section0](section-zero/index.md)")
         out  ((md/rewrite-nested-doc-links "index.md") html)]
-    (is (str/includes? out "href='phase-0-first-contact/index.html'"))))
+    (is (str/includes? out "href='section-zero/index.html'"))))
 
 (deftest rewrite-nested-doc-links-still-leaves-cross-repo-links-untouched
   ;; A '..' walking above guide-dir itself (own doc is one level deep,
@@ -189,7 +189,7 @@
   ;; the same 'honest dead link' philosophy for genuinely external refs.
   (let [html (md/render-markdown
               "[ext](../../../sample-project/docs/guide/mcp-extensions.md)")
-        out  ((md/rewrite-nested-doc-links "phase-1-foundations/02-the-game-loop.md") html)]
+        out  ((md/rewrite-nested-doc-links "section-one/02-second-page.md") html)]
     (is (str/includes? out "href='../../../sample-project/docs/guide/mcp-extensions.md'"))))
 
 (deftest render-doc-page-full-pipeline

@@ -426,14 +426,14 @@
   "Builds a (fn [html] html) link-rewriter (for
    site.markdown/render-doc-page's 2-arity form) for one guide doc at
    own-rel-path — its path relative to guide-dir, e.g.
-   \"phase-1-foundations/02-the-game-loop.md\", or a bare filename like
+   \"section-one/02-second-page.md\", or a bare filename like
    \"index.md\" at guide-dir's own root. Resolves every relative .md
    href against the doc's own directory and rewrites it to a
    browser-relative .html href that correctly walks back up to
    guide-dir root and down into the target's own directory (however
-   deep either side is) — e.g. from phase-1-foundations/, a link to
-   ../phase-2-arcade-classics/01-pong.md becomes
-   ../phase-2-arcade-classics/01-pong.html. An absolute URL, or a path
+   deep either side is) — e.g. from section-one/, a link to
+   ../section-two/01-first-page.md becomes
+   ../section-two/01-first-page.html. An absolute URL, or a path
    that resolves outside guide-dir entirely (a genuine cross-repo
    reference), is left COMPLETELY untouched — same 'honest dead link
    beats a disguised one' philosophy as rewrite-doc-links and

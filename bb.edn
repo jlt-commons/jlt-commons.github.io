@@ -1,9 +1,9 @@
 ;; bb.edn - the jlt-commons website generator.
 ;;
-;; Ported from the b12n-docs engine and trimmed to a single site. The one
-;; addition is base-path support (see site.core/base-path), which lets a
-;; jlt-commons member project build a site served at /<repo>/ rather than
-;; at a domain root.
+;; A trimmed port of a private engine by the same author, reduced to a
+;; single site. The one addition is base-path support (see
+;; site.core/base-path), which lets a jlt-commons member project build a
+;; site served at /<repo>/ rather than at a domain root.
 {:paths ["src" "test" "resources"]
  :deps  {markdown-clj/markdown-clj {:mvn/version "1.11.4"}}
  :tasks

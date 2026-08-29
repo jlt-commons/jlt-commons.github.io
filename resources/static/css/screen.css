@@ -1,8 +1,8 @@
 /* ============================================================
-   b12n-docs shared screen.css theme
-   Dark-by-default, code-forward theme with a light counterpart,
-   shared across every b12n project site. Written to be read and edited
-   by maintainers, not shipped as opaque minified CSS.
+   jlt-commons site screen.css theme
+   Dark-by-default, code-forward theme with a light counterpart.
+   Written to be read and edited by maintainers, not shipped as
+   opaque minified CSS.
 
    Theming: every color token below has three faces: the bare value
    here (dark, the unconditional fallback), a light override under
@@ -569,7 +569,7 @@ nav.toc {
   font-weight: 600;
 }
 
-/* inline code, e.g. `src/net/b12n/tsj/core.clj` in prose */
+/* inline code, e.g. `src/site/core.clj` in prose */
 .doc-content code {
   background: var(--bg-raised);
   border: 1px solid var(--border);

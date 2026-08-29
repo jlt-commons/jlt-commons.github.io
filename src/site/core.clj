@@ -55,8 +55,8 @@
    its files sorted with index.md pinned first. Plain alphabetical sort
    on full relative paths would get a nested project's per-directory
    index.md wrong when numbered siblings start above 01 (verified
-   against a sample nested project's phase-3/, whose files are
-   index.md, 02-port-your-pong.md, 03-closing.md — alphabetical-on-full-
+   against a sample nested project's section-three/, whose files are
+   index.md, 02-getting-started.md, 03-closing.md — alphabetical-on-full-
    path would order index.md LAST, after 02/03, since digits sort below
    the letter 'i'); grouping by directory and pinning per-group avoids
    that."
