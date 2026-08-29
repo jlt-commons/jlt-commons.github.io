@@ -23,7 +23,9 @@
   (if (str/blank? raw)
     ""
     (let [trimmed (str/replace raw #"/+$" "")]
-      (if (str/starts-with? trimmed "/") trimmed (str "/" trimmed)))))
+      (if (str/blank? trimmed)
+        ""
+        (if (str/starts-with? trimmed "/") trimmed (str "/" trimmed))))))
 
 (defn- slug-of [doc-id] (str/replace doc-id #"\.md$" ""))
 

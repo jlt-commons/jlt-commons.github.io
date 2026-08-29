@@ -9,7 +9,9 @@
   (testing "root-hosted sites collapse to the empty string"
     (is (= "" (core/base-path nil)))
     (is (= "" (core/base-path "")))
-    (is (= "" (core/base-path "   "))))
+    (is (= "" (core/base-path "   ")))
+    (is (= "" (core/base-path "/")))
+    (is (= "" (core/base-path "///"))))
   (testing "a project path always gains a leading slash and loses trailing ones"
     (is (= "/some-lib" (core/base-path "some-lib")))
     (is (= "/some-lib" (core/base-path "/some-lib")))
