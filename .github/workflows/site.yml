@@ -22,7 +22,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Install babashka
-        uses: DeLaGuardo/setup-clojure@v13
+        uses: DeLaGuardo/setup-clojure@13.6.1
         with:
           bb: latest
 
