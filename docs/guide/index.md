@@ -7,9 +7,14 @@ This organization exists so useful Jolt libraries have somewhere to go when they
 one maintainer, and so new community work has a home without having to be an official
 project first.
 
-It is **not** an official Jolt project. The language, its standard library, and the
-libraries the core team maintains all live in
-[jolt-lang](https://github.com/jolt-lang).
+It is **not** the official Jolt organization, and it is not meant to be.
+[jolt-lang](https://github.com/jolt-lang) owns the language and its standard library.
+This organization exists so the ecosystem around it has somewhere of its own, which is
+the arrangement Jolt's author suggested: the official org keeps the bare essentials and
+everything else moves to the commons.
+
+Membership here is not a core-team recommendation of any particular library. The
+projects are maintained by the people who brought them.
 
 ## Ways to help
 

@@ -11,8 +11,9 @@
     libraries and tooling.
   </p>
   <p class="hero-note">
-    Not an official Jolt project. The language and the libraries its core team maintains
-    live in <a href="https://github.com/jolt-lang">jolt-lang</a>.
+    Not the official Jolt organization, and complementary to it by design.
+    <a href="https://github.com/jolt-lang">jolt-lang</a> keeps the language and the
+    essentials; the ecosystem around it lives here, with the core team's support.
   </p>
 </header>
 
@@ -33,6 +34,32 @@
       maintain it, which is deliberately low while Jolt is this young.
     </p>
   </article>
+</section>
+
+<section class="projects">
+  <h2>Projects</h2>
+  <p>
+    Two so far, both adopted: transferred rather than forked, so their history and issues
+    came with them, and both keep their original maintainer.
+  </p>
+  <ul>
+    <li>
+      <a href="https://github.com/jlt-commons/raylib-jlt">raylib-jlt</a> -
+      119 <a href="https://www.raylib.com">raylib</a> examples, calling the system
+      <code>libraylib</code> over its C ABI through <code>jolt.ffi</code>.
+      <a href="https://jlt-commons.github.io/raylib-jlt/">Docs and gallery</a>.
+    </li>
+    <li>
+      <a href="https://github.com/jlt-commons/raygui-jlt">raygui-jlt</a> -
+      24 examples of raygui, raylib's immediate-mode GUI library, bound the same way.
+      <a href="https://jlt-commons.github.io/raygui-jlt/">Docs and gallery</a>.
+    </li>
+  </ul>
+  <p>
+    Both publish through <a href="https://github.com/jlt-commons/docs-engine">docs-engine</a>,
+    so neither maintains a site generator of its own.
+    <a href="{{site-base}}/guide/projects.html">More about how they got here</a>.
+  </p>
 </section>
 
 <section class="cta">
@@ -63,6 +90,7 @@
             display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 1.5rem; }
   .tracks article { background: var(--bg-raised); border: 1px solid var(--border);
                     border-radius: var(--radius); padding: 1.5rem; }
+  .projects { max-width: 46rem; margin: 0 auto; }
   .cta { max-width: 46rem; margin: 0 auto; }
   .cta ul { line-height: 2; }
 </style>
