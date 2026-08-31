@@ -1,6 +1,6 @@
 # Projects
 
-Four, all adopted.
+Five, all adopted.
 
 | project | what it is | arrived by | docs |
 |---|---|---|---|
@@ -8,12 +8,13 @@ Four, all adopted.
 | [raygui-jlt](https://github.com/jlt-commons/raygui-jlt) | 24 examples of raygui, raylib's immediate-mode GUI library, bound the same way | adoption | [jlt-commons.github.io/raygui-jlt](https://jlt-commons.github.io/raygui-jlt/) |
 | [glitter](https://github.com/jlt-commons/glitter) | A [Replicant](https://github.com/cjohansen/replicant)-style GTK4 renderer: one state atom, a pure `state -> hiccup` view, event handlers as data | adoption | [jlt-commons.github.io/glitter](https://jlt-commons.github.io/glitter/) |
 | [glitter-gl](https://github.com/jlt-commons/glitter-gl) | OpenGL geometry, matrices and shaders for glitter, plus a `:gl-area` widget to draw them in | adoption | [jlt-commons.github.io/glitter-gl](https://jlt-commons.github.io/glitter-gl/) |
+| [glitter-uikit](https://github.com/jlt-commons/glitter-uikit) | the same renderer model driving native macOS `NSView` widgets through AppKit, rather than GTK4 | adoption | [jlt-commons.github.io/glitter-uikit](https://jlt-commons.github.io/glitter-uikit/) |
 
-All four were transferred rather than forked, so their stars, issues and history came
+All five were transferred rather than forked, so their stars, issues and history came
 with them, and the old URLs still redirect. Each keeps its original maintainer.
 
-The two GTK projects arrived more recently and are already on the shared engine, so
-all four sites now live at `jlt-commons.github.io/<repo>/`.
+The three glitter projects arrived more recently and are already on the shared engine,
+so all five sites now live at `jlt-commons.github.io/<repo>/`.
 
 ## Why raylib-jlt and raygui-jlt first
 
