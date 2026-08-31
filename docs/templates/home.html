@@ -39,8 +39,8 @@
 <section class="projects">
   <h2>Projects</h2>
   <p>
-    Two so far, both adopted: transferred rather than forked, so their history and issues
-    came with them, and both keep their original maintainer.
+    Four so far, all adopted: transferred rather than forked, so their history and issues
+    came with them, and each keeps its original maintainer.
   </p>
   <ul>
     <li>
@@ -54,10 +54,24 @@
       24 examples of raygui, raylib's immediate-mode GUI library, bound the same way.
       <a href="https://jlt-commons.github.io/raygui-jlt/">Docs and gallery</a>.
     </li>
+    <li>
+      <a href="https://github.com/jlt-commons/glitter">glitter</a> -
+      a <a href="https://github.com/cjohansen/replicant">Replicant</a>-style GTK4 renderer:
+      one state atom, a pure <code>state -&gt; hiccup</code> view, and event handlers as data.
+      <a href="https://glitter.b12n.app/">Docs</a>.
+    </li>
+    <li>
+      <a href="https://github.com/jlt-commons/glitter-gl">glitter-gl</a> -
+      OpenGL geometry, matrices and shaders for glitter, plus a <code>:gl-area</code> widget
+      to draw them in.
+      <a href="https://glitter-gl.b12n.app/">Docs</a>.
+    </li>
   </ul>
   <p>
-    Both publish through <a href="https://github.com/jlt-commons/docs-engine">docs-engine</a>,
-    so neither maintains a site generator of its own.
+    The raylib pair publish through
+    <a href="https://github.com/jlt-commons/docs-engine">docs-engine</a>, so neither
+    maintains a site generator of its own. The two GTK projects are moving onto it, and
+    their documentation still comes from where it was built before they arrived.
     <a href="{{site-base}}/guide/projects.html">More about how they got here</a>.
   </p>
 </section>
