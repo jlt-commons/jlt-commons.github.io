@@ -6,15 +6,14 @@ Four, all adopted.
 |---|---|---|---|
 | [raylib-jlt](https://github.com/jlt-commons/raylib-jlt) | 119 [raylib](https://www.raylib.com) examples, calling the system `libraylib` over its C ABI through `jolt.ffi` | adoption | [jlt-commons.github.io/raylib-jlt](https://jlt-commons.github.io/raylib-jlt/) |
 | [raygui-jlt](https://github.com/jlt-commons/raygui-jlt) | 24 examples of raygui, raylib's immediate-mode GUI library, bound the same way | adoption | [jlt-commons.github.io/raygui-jlt](https://jlt-commons.github.io/raygui-jlt/) |
-| [glitter](https://github.com/jlt-commons/glitter) | A [Replicant](https://github.com/cjohansen/replicant)-style GTK4 renderer: one state atom, a pure `state -> hiccup` view, event handlers as data | adoption | [glitter.b12n.app](https://glitter.b12n.app/) |
-| [glitter-gl](https://github.com/jlt-commons/glitter-gl) | OpenGL geometry, matrices and shaders for glitter, plus a `:gl-area` widget to draw them in | adoption | [glitter-gl.b12n.app](https://glitter-gl.b12n.app/) |
+| [glitter](https://github.com/jlt-commons/glitter) | A [Replicant](https://github.com/cjohansen/replicant)-style GTK4 renderer: one state atom, a pure `state -> hiccup` view, event handlers as data | adoption | [jlt-commons.github.io/glitter](https://jlt-commons.github.io/glitter/) |
+| [glitter-gl](https://github.com/jlt-commons/glitter-gl) | OpenGL geometry, matrices and shaders for glitter, plus a `:gl-area` widget to draw them in | adoption | [jlt-commons.github.io/glitter-gl](https://jlt-commons.github.io/glitter-gl/) |
 
 All four were transferred rather than forked, so their stars, issues and history came
 with them, and the old URLs still redirect. Each keeps its original maintainer.
 
-The two GTK projects arrived more recently and still serve their documentation from
-where it was built before the move. Both are being brought onto the shared engine,
-and their links become `jlt-commons.github.io` addresses once that lands.
+The two GTK projects arrived more recently and are already on the shared engine, so
+all four sites now live at `jlt-commons.github.io/<repo>/`.
 
 ## Why raylib-jlt and raygui-jlt first
 
