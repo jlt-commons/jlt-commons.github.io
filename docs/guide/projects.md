@@ -1,6 +1,6 @@
 # Projects
 
-Five, all adopted.
+Six, all adopted.
 
 | project | what it is | arrived by | docs |
 |---|---|---|---|
@@ -9,12 +9,17 @@ Five, all adopted.
 | [glitter](https://github.com/jlt-commons/glitter) | A [Replicant](https://github.com/cjohansen/replicant)-style GTK4 renderer: one state atom, a pure `state -> hiccup` view, event handlers as data | adoption | [jlt-commons.github.io/glitter](https://jlt-commons.github.io/glitter/) |
 | [glitter-gl](https://github.com/jlt-commons/glitter-gl) | OpenGL geometry, matrices and shaders for glitter, plus a `:gl-area` widget to draw them in | adoption | [jlt-commons.github.io/glitter-gl](https://jlt-commons.github.io/glitter-gl/) |
 | [glitter-uikit](https://github.com/jlt-commons/glitter-uikit) | the same renderer model driving native macOS `NSView` widgets through AppKit, rather than GTK4 | adoption | [jlt-commons.github.io/glitter-uikit](https://jlt-commons.github.io/glitter-uikit/) |
+| [raylib-ios](https://github.com/jlt-commons/raylib-ios) | raylib and SDL2 on a physical iPhone, as portable bytecode with no JIT, since iOS forbids generating code at run time. Seventeen scenes at 60 fps | adoption | [jlt-commons.github.io/raylib-ios](https://jlt-commons.github.io/raylib-ios/) |
 
-All five were transferred rather than forked, so their stars, issues and history came
+All six were transferred rather than forked, so their stars, issues and history came
 with them, and the old URLs still redirect. Each keeps its original maintainer.
 
 The three glitter projects arrived more recently and are already on the shared engine,
-so all five sites now live at `jlt-commons.github.io/<repo>/`.
+so all six sites now live at `jlt-commons.github.io/<repo>/`.
+
+raylib-ios is the newest and the odd one out in one respect worth flagging: parts of it
+derive from a demo repository that carries no licence, published while a request for one
+is pending. Its own `NOTICE` says which files and what that means for a fork.
 
 ## Why raylib-jlt and raygui-jlt first
 
