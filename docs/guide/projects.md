@@ -1,6 +1,6 @@
 # Projects
 
-Six, all adopted.
+Eight. Six arrived by adoption, and two were started here by Jolt's author.
 
 | project | what it is | arrived by | docs |
 |---|---|---|---|
@@ -10,12 +10,17 @@ Six, all adopted.
 | [glitter-gl](https://github.com/jlt-commons/glitter-gl) | OpenGL geometry, matrices and shaders for glitter, plus a `:gl-area` widget to draw them in | adoption | [jlt-commons.github.io/glitter-gl](https://jlt-commons.github.io/glitter-gl/) |
 | [glitter-uikit](https://github.com/jlt-commons/glitter-uikit) | the same renderer model driving native macOS `NSView` widgets through AppKit, rather than GTK4 | adoption | [jlt-commons.github.io/glitter-uikit](https://jlt-commons.github.io/glitter-uikit/) |
 | [raylib-ios](https://github.com/jlt-commons/raylib-ios) | raylib and SDL2 on a physical iPhone, as portable bytecode with no JIT, since iOS forbids generating code at run time. Seventeen scenes at 60 fps | adoption | [jlt-commons.github.io/raylib-ios](https://jlt-commons.github.io/raylib-ios/) |
+| [raylib-android](https://github.com/jlt-commons/raylib-android) | raylib on an Android phone as native arm64 code, with no JVM, Kotlin or Java anywhere in the app. Seventeen scenes under an owner loop of about thirty lines | started here | [the repo](https://github.com/jlt-commons/raylib-android) |
+| [ebb](https://github.com/jlt-commons/ebb) | A port of [missionary](https://github.com/leonoel/missionary): composable tasks and flows with real cancellation and glitch-free dataflow, running on Chez fibers | started here | [the repo](https://github.com/jlt-commons/ebb) |
 
-All six were transferred rather than forked, so their stars, issues and history came
-with them, and the old URLs still redirect. Each keeps its original maintainer.
+The six adopted ones were transferred rather than forked, so their stars, issues and
+history came with them, and the old URLs still redirect. Each keeps its original
+maintainer. All six are on the shared engine, so their sites live at
+`jlt-commons.github.io/<repo>/`.
 
-The three glitter projects arrived more recently and are already on the shared engine,
-so all six sites now live at `jlt-commons.github.io/<repo>/`.
+raylib-android and ebb are the other route. Both were started in this organization by
+Jolt's author, and both are recent enough that their documentation is still the repo
+README.
 
 raylib-ios is the newest and the odd one out in one respect worth flagging: parts of it
 derive from a demo repository that carries no licence, published while a request for one
@@ -40,10 +45,12 @@ That includes Jolt's own author, Dmitri Sotnikov, who put the split plainly:
 > would be best to keep bare essentials there like time, and then move the rest
 > to the commons
 
-So this is not a splinter. It is the other half of an arrangement the language's
-author suggested, and some [jolt-lang](https://github.com/jolt-lang) projects are
-expected to move here on that basis. These two are the first test of it, and the
-reason the adoption track leads rather than incubation.
+So the two organizations are halves of one arrangement the language's author
+suggested, and some [jolt-lang](https://github.com/jolt-lang) projects are expected to
+move here on that basis. It runs the other way as well. ebb and raylib-android were both
+started in this organization by the same author, with more expected. These two adoptions
+were the first test of the arrangement, and the reason the adoption track leads rather
+than incubation.
 
 ## What this organization does
 
@@ -63,16 +70,16 @@ does not have to make them alone:
   fast. When someone works out what a struct actually costs across the ABI, that
   belongs where the next person will find it.
 
-That is the leading part, and it is deliberate. This organization is not a
-parking lot for projects whose authors lost interest. It sets a floor for what a
-Jolt library looks like and then helps projects reach it, which is a job someone
-has to do while the language is this young.
+That is the leading part, and it is deliberate. This organization sets a floor
+for what a Jolt library looks like and then helps projects reach it, which is a
+job someone has to do while the language is this young. Projects arriving with a
+tired maintainer and projects arriving on their first day both get the same
+footing.
 
-It is also the job the official organization should not have to do. A language
-team's attention belongs on the language. Keeping the ecosystem's libraries
-somewhere adjacent, with their own conventions and their own release cadence, is
-how clj-commons has served Clojure for years, and the same split looks right
-here.
+It also leaves a language team's attention on the language. Keeping the
+ecosystem's libraries somewhere adjacent, with their own conventions and their
+own release cadence, is how clj-commons has served Clojure for years, and the
+same arrangement looks right here.
 
 ## What goes here
 

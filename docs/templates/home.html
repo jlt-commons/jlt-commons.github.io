@@ -7,13 +7,13 @@
        alt="The jlt-commons mark: a lightning bolt inside an open ring">
   <h1>jlt-commons</h1>
   <p class="hero-tagline">
-    A community-led home for <a href="https://github.com/jolt-lang/jolt">Jolt</a>
+    A shared home for <a href="https://github.com/jolt-lang/jolt">Jolt</a>
     libraries and tooling.
   </p>
   <p class="hero-note">
-    Not the official Jolt organization, and complementary to it by design.
     <a href="https://github.com/jolt-lang">jolt-lang</a> keeps the language and the
-    essentials; the ecosystem around it lives here, with the core team's support.
+    essentials. Everything growing around them lives here, where the community and the
+    core team publish side by side.
   </p>
 </header>
 
@@ -29,9 +29,10 @@
   <article>
     <h2>Incubation</h2>
     <p>
-      New community work. Ports of widely used Clojure libraries, and new libraries the
-      core team does not want to own. The bar is a real gap and someone willing to
-      maintain it, which is deliberately low while Jolt is this young.
+      New work started here. Ports of widely used Clojure libraries, and new libraries
+      that belong beside the language rather than inside it. Jolt's own author started
+      two this way. The bar is a real gap and someone willing to maintain it, which is
+      deliberately low while Jolt is this young.
     </p>
   </article>
 </section>
@@ -39,8 +40,9 @@
 <section class="projects">
   <h2>Projects</h2>
   <p>
-    Six so far, all adopted: transferred rather than forked, so their history and issues
-    came with them, and each keeps its original maintainer.
+    Eight so far. Six arrived by adoption, transferred rather than forked, so their
+    history and issues came with them and each kept its original maintainer. Two were
+    started here by Jolt's author.
   </p>
   <ul>
     <li>
@@ -78,9 +80,20 @@
       iOS forbids generating code at run time. Seventeen scenes at 60 fps.
       <a href="https://jlt-commons.github.io/raylib-ios/">Docs and gallery</a>.
     </li>
+    <li>
+      <a href="https://github.com/jlt-commons/raylib-android">raylib-android</a> -
+      raylib on an Android phone as native arm64 code, with no JVM, Kotlin or Java
+      anywhere in the app. Seventeen scenes under an owner loop of about thirty lines.
+    </li>
+    <li>
+      <a href="https://github.com/jlt-commons/ebb">ebb</a> -
+      a port of <a href="https://github.com/leonoel/missionary">missionary</a>:
+      composable tasks and flows with real cancellation and glitch-free dataflow,
+      running on Chez fibers.
+    </li>
   </ul>
   <p>
-    All six publish through
+    The six adopted projects publish through
     <a href="https://github.com/jlt-commons/docs-engine">docs-engine</a>, so none of them
     maintains a site generator of its own, and each site lives at
     <code>jlt-commons.github.io/&lt;repo&gt;/</code>.

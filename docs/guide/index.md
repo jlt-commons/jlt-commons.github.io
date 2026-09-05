@@ -1,25 +1,31 @@
 # Getting involved
 
-jlt-commons is a community-led home for [Jolt](https://github.com/jolt-lang/jolt)
-libraries and tooling. Jolt is a Clojure compiler built on Chez Scheme.
+jlt-commons is a shared home for [Jolt](https://github.com/jolt-lang/jolt) libraries and
+tooling. Jolt is a Clojure compiler built on Chez Scheme.
 
-This organization exists so useful Jolt libraries have somewhere to go when they outgrow
-one maintainer, and so new community work has a home without having to be an official
-project first.
+This organization is where the people building on Jolt publish together: libraries that
+have outgrown a single maintainer, ports of Clojure libraries, and new work that would
+rather start with company than alone.
 
-It is **not** the official Jolt organization, and it is not meant to be.
-[jolt-lang](https://github.com/jolt-lang) owns the language and its standard library.
-This organization exists so the ecosystem around it has somewhere of its own, which is
-the arrangement Jolt's author suggested: the official org keeps the bare essentials and
-everything else moves to the commons.
+[jolt-lang](https://github.com/jolt-lang) keeps the language and its standard library,
+and everything growing around them lives here. That is the arrangement Jolt's author
+suggested: the language org stays focused on the essentials, and the wider ecosystem gets
+one obvious place to be found. The two overlap on purpose, and this organization's admins
+are members of jolt-lang too.
 
-Membership here is not a core-team recommendation of any particular library. The
-projects are maintained by the people who brought them.
+Core-team work lands here directly. [ebb](https://github.com/jlt-commons/ebb) and
+[raylib-android](https://github.com/jlt-commons/raylib-android) were both started in this
+organization by Jolt's author rather than moved in later, with more expected.
+
+Each project keeps its own maintainers, release cadence and review protocol. What it
+gains by being here is shared ground: a documentation site built and published for it, CI
+that checks it against a current Jolt, and conventions worked out once instead of once
+per repository.
 
 ## Ways to help
 
-You do not need to be a member of anything. Open an issue or a pull request on any repo
-and someone will look at it.
+Everyone is welcome here, member or not. Open an issue or a pull request on any repo and
+someone will look at it.
 
 **Fix something.** Pull requests are welcome on every project here. For a change larger
 than a bug fix, open an issue first so nobody duplicates your work.
