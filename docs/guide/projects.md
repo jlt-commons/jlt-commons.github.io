@@ -26,6 +26,14 @@ raylib-ios is the newest and the odd one out in one respect worth flagging: part
 derive from a demo repository that carries no licence, published while a request for one
 is pending. Its own `NOTICE` says which files and what that means for a fork.
 
+## The wider ecosystem
+
+This table is only what's hosted in this organization. For the official jolt-lang
+libraries, JVM and Clojure compatibility, docs and tooling beyond it, see
+[awesome-jolt](https://github.com/jlt-commons/awesome-jolt) — a community-maintained
+curated list, itself published through docs-engine at
+[jlt-commons.github.io/awesome-jolt](https://jlt-commons.github.io/awesome-jolt/).
+
 ## Why raylib-jlt and raygui-jlt first
 
 They are the shape the adoption track was written for. Both were personal
