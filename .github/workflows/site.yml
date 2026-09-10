@@ -26,7 +26,7 @@ concurrency:
   cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
 env:
-  DOCS_ENGINE_REF: v0.2.0
+  DOCS_ENGINE_REF: v0.3.0
 
 jobs:
   build:
