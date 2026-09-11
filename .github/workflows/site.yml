@@ -26,7 +26,10 @@ concurrency:
   cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
 env:
-  DOCS_ENGINE_REF: v0.3.0
+  # v0.3.1 adds a shareable "copy link" anchor to every heading (see the
+  # docs-engine README, "Markdown"); v0.3.0 added the default
+  # Contributing page.
+  DOCS_ENGINE_REF: v0.3.1
 
 jobs:
   build:
