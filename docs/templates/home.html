@@ -40,9 +40,9 @@
 <section class="projects">
   <h2>Projects</h2>
   <p>
-    Eight so far. Six arrived by adoption, transferred rather than forked, so their
-    history and issues came with them and each kept its original maintainer. Two were
-    started here by Jolt's author.
+    Eleven so far. Six arrived by adoption, transferred rather than forked, so their
+    history and issues came with them and each kept its original maintainer. Five were
+    started here, by two different people.
   </p>
   <ul>
     <li>
@@ -57,9 +57,18 @@
       <a href="https://jlt-commons.github.io/raygui-jlt/">Docs and gallery</a>.
     </li>
     <li>
+      <a href="https://github.com/jlt-commons/glitter-core">glitter-core</a> -
+      the natives-free two-thirds of glitter: the
+      <a href="https://github.com/cjohansen/replicant">Replicant</a>-style reconciler and
+      <code>IRender</code>/<code>IMemory</code> protocols, with no toolkit dependency at all.
+      What glitter, glitter-uikit, and uikit-demo all build on.
+      <a href="https://jlt-commons.github.io/glitter-core/">Docs</a>.
+    </li>
+    <li>
       <a href="https://github.com/jlt-commons/glitter">glitter</a> -
-      a <a href="https://github.com/cjohansen/replicant">Replicant</a>-style GTK4 renderer:
-      one state atom, a pure <code>state -&gt; hiccup</code> view, and event handlers as data.
+      a <a href="https://github.com/cjohansen/replicant">Replicant</a>-style GTK4 renderer
+      built on glitter-core: one state atom, a pure <code>state -&gt; hiccup</code> view, and
+      event handlers as data.
       <a href="https://jlt-commons.github.io/glitter/">Docs</a>.
     </li>
     <li>
@@ -73,6 +82,18 @@
       the same renderer model driving native macOS <code>NSView</code> widgets through
       AppKit, rather than GTK4.
       <a href="https://jlt-commons.github.io/glitter-uikit/">Docs</a>.
+    </li>
+    <li>
+      <a href="https://github.com/jlt-commons/uikit-demo">uikit-demo</a> -
+      a demo of glitter-uikit: a hub of live example windows (counter, currency
+      converter, live FX, particle toy) built as a real macOS app bundle.
+      <a href="https://jlt-commons.github.io/uikit-demo/">Docs</a>.
+    </li>
+    <li>
+      <a href="https://github.com/jlt-commons/nexus-jolt">nexus-jolt</a> -
+      a Jolt port of <a href="https://github.com/cjohansen/nexus">nexus</a>: data-driven
+      action/effect/placeholder dispatch, used today by the glitter family.
+      <a href="https://jlt-commons.github.io/nexus-jolt/">Docs</a>.
     </li>
     <li>
       <a href="https://github.com/jlt-commons/raylib-ios">raylib-ios</a> -
@@ -93,15 +114,16 @@
     </li>
   </ul>
   <p>
-    The six adopted projects publish through
-    <a href="https://github.com/jlt-commons/docs-engine">docs-engine</a>, so none of them
-    maintains a site generator of its own, and each site lives at
-    <code>jlt-commons.github.io/&lt;repo&gt;/</code>.
+    The six adopted projects, plus glitter-core, uikit-demo, and nexus-jolt, publish
+    through <a href="https://github.com/jlt-commons/docs-engine">docs-engine</a>, so none
+    of them maintains a site generator of its own, and each site lives at
+    <code>jlt-commons.github.io/&lt;repo&gt;/</code>. raylib-android and ebb are recent
+    enough that their documentation is still the repo README.
     <a href="{{site-base}}/guide/projects.html">More about how they got here</a>.
   </p>
   <p>
     <a href="https://github.com/jlt-commons/awesome-jolt">awesome-jolt</a> catalogs the
-    wider ecosystem beyond this organization's own eight — jolt-lang's own libraries,
+    wider ecosystem beyond this organization's own eleven — jolt-lang's own libraries,
     JVM and Clojure compatibility, docs and tooling.
   </p>
 </section>

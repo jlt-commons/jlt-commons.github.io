@@ -1,14 +1,17 @@
 # Projects
 
-Eight. Six arrived by adoption, and two were started here by Jolt's author.
+Eleven. Six arrived by adoption, and five were started here.
 
 | project | what it is | arrived by | docs |
 |---|---|---|---|
 | [raylib-jlt](https://github.com/jlt-commons/raylib-jlt) | 119 [raylib](https://www.raylib.com) examples, calling the system `libraylib` over its C ABI through `jolt.ffi` | adoption | [jlt-commons.github.io/raylib-jlt](https://jlt-commons.github.io/raylib-jlt/) |
 | [raygui-jlt](https://github.com/jlt-commons/raygui-jlt) | 24 examples of raygui, raylib's immediate-mode GUI library, bound the same way | adoption | [jlt-commons.github.io/raygui-jlt](https://jlt-commons.github.io/raygui-jlt/) |
-| [glitter](https://github.com/jlt-commons/glitter) | A [Replicant](https://github.com/cjohansen/replicant)-style GTK4 renderer: one state atom, a pure `state -> hiccup` view, event handlers as data | adoption | [jlt-commons.github.io/glitter](https://jlt-commons.github.io/glitter/) |
+| [glitter-core](https://github.com/jlt-commons/glitter-core) | The natives-free two-thirds of glitter: the Replicant-style reconciler and `IRender`/`IMemory` protocols, with no toolkit dependency at all. What glitter, glitter-uikit, and uikit-demo all build on | started here | [jlt-commons.github.io/glitter-core](https://jlt-commons.github.io/glitter-core/) |
+| [glitter](https://github.com/jlt-commons/glitter) | A [Replicant](https://github.com/cjohansen/replicant)-style GTK4 renderer built on glitter-core: one state atom, a pure `state -> hiccup` view, event handlers as data | adoption | [jlt-commons.github.io/glitter](https://jlt-commons.github.io/glitter/) |
 | [glitter-gl](https://github.com/jlt-commons/glitter-gl) | OpenGL geometry, matrices and shaders for glitter, plus a `:gl-area` widget to draw them in | adoption | [jlt-commons.github.io/glitter-gl](https://jlt-commons.github.io/glitter-gl/) |
 | [glitter-uikit](https://github.com/jlt-commons/glitter-uikit) | the same renderer model driving native macOS `NSView` widgets through AppKit, rather than GTK4 | adoption | [jlt-commons.github.io/glitter-uikit](https://jlt-commons.github.io/glitter-uikit/) |
+| [uikit-demo](https://github.com/jlt-commons/uikit-demo) | A demo of glitter-uikit: a hub of live example windows (counter, currency converter, live FX, particle toy) built as a real macOS app bundle | started here | [jlt-commons.github.io/uikit-demo](https://jlt-commons.github.io/uikit-demo/) |
+| [nexus-jolt](https://github.com/jlt-commons/nexus-jolt) | A Jolt port of [nexus](https://github.com/cjohansen/nexus): data-driven action/effect/placeholder dispatch, used today by the glitter family | started here | [jlt-commons.github.io/nexus-jolt](https://jlt-commons.github.io/nexus-jolt/) |
 | [raylib-ios](https://github.com/jlt-commons/raylib-ios) | raylib and SDL2 on a physical iPhone, as portable bytecode with no JIT, since iOS forbids generating code at run time. Seventeen scenes at 60 fps | adoption | [jlt-commons.github.io/raylib-ios](https://jlt-commons.github.io/raylib-ios/) |
 | [raylib-android](https://github.com/jlt-commons/raylib-android) | raylib on an Android phone as native arm64 code, with no JVM, Kotlin or Java anywhere in the app. Seventeen scenes under an owner loop of about thirty lines | started here | [the repo](https://github.com/jlt-commons/raylib-android) |
 | [ebb](https://github.com/jlt-commons/ebb) | A port of [missionary](https://github.com/leonoel/missionary): composable tasks and flows with real cancellation and glitch-free dataflow, running on Chez fibers | started here | [the repo](https://github.com/jlt-commons/ebb) |
@@ -18,9 +21,14 @@ history came with them, and the old URLs still redirect. Each keeps its original
 maintainer. All six are on the shared engine, so their sites live at
 `jlt-commons.github.io/<repo>/`.
 
-raylib-android and ebb are the other route. Both were started in this organization by
-Jolt's author, and both are recent enough that their documentation is still the repo
-README.
+Five were started here rather than adopted, by two different people. raylib-android and
+ebb were both started in this organization by Jolt's author, and both are recent enough
+that their documentation is still the repo README. glitter-core, uikit-demo, and
+nexus-jolt were started by a different maintainer, extracted from glitter to fix the
+"GTK4 required even though it's never called" limitation glitter-uikit and glitter-gl's
+own READMEs had named as future work — see
+[jlt-commons/meta#1](https://github.com/jlt-commons/meta/issues/1) for the proposal. All
+three are on the shared engine from day one.
 
 raylib-ios is the newest and the odd one out in one respect worth flagging: parts of it
 derive from a demo repository that carries no licence, published while a request for one
