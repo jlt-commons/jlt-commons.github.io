@@ -40,14 +40,14 @@
 <section class="projects">
   <h2>Projects</h2>
   <p>
-    Eleven so far. Six arrived by adoption, transferred rather than forked, so their
-    history and issues came with them and each kept its original maintainer. Five were
+    Twelve so far. Six arrived by adoption, transferred rather than forked, so their
+    history and issues came with them and each kept its original maintainer. Six were
     started here, by two different people.
   </p>
   <ul>
     <li>
       <a href="https://github.com/jlt-commons/raylib-jlt">raylib-jlt</a> -
-      119 <a href="https://www.raylib.com">raylib</a> examples, calling the system
+      154 <a href="https://www.raylib.com">raylib</a> examples, calling the system
       <code>libraylib</code> over its C ABI through <code>jolt.ffi</code>.
       <a href="https://jlt-commons.github.io/raylib-jlt/">Docs and gallery</a>.
     </li>
@@ -98,7 +98,7 @@
     <li>
       <a href="https://github.com/jlt-commons/raylib-ios">raylib-ios</a> -
       raylib and SDL2 on a physical iPhone, as portable bytecode with no JIT, because
-      iOS forbids generating code at run time. Seventeen scenes at 60 fps.
+      iOS forbids generating code at run time. Forty-eight scenes at 60 fps.
       <a href="https://jlt-commons.github.io/raylib-ios/">Docs and gallery</a>.
     </li>
     <li>
@@ -112,18 +112,24 @@
       composable tasks and flows with real cancellation and glitch-free dataflow,
       running on Chez fibers.
     </li>
+    <li>
+      <a href="https://github.com/jlt-commons/ftxui-jolt">ftxui-jolt</a> -
+      a reagent-style API over <a href="https://github.com/ArthurSonzogni/FTXUI">FTXUI</a>,
+      the C++ terminal UI library: components as functions returning hiccup, rendered
+      through FTXUI's own event loop, focus handling and mouse support.
+    </li>
   </ul>
   <p>
     The six adopted projects, plus glitter-core, uikit-demo, and nexus-jolt, publish
     through <a href="https://github.com/jlt-commons/docs-engine">docs-engine</a>, so none
     of them maintains a site generator of its own, and each site lives at
-    <code>jlt-commons.github.io/&lt;repo&gt;/</code>. raylib-android and ebb are recent
-    enough that their documentation is still the repo README.
+    <code>jlt-commons.github.io/&lt;repo&gt;/</code>. raylib-android, ebb, and ftxui-jolt
+    are recent enough that their documentation is still the repo README.
     <a href="{{site-base}}/guide/projects.html">More about how they got here</a>.
   </p>
   <p>
     <a href="https://github.com/jlt-commons/awesome-jolt">awesome-jolt</a> catalogs the
-    wider ecosystem beyond this organization's own eleven — jolt-lang's own libraries,
+    wider ecosystem beyond this organization's own twelve — jolt-lang's own libraries,
     JVM and Clojure compatibility, docs and tooling.
   </p>
 </section>

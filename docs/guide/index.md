@@ -13,8 +13,9 @@ suggested: the language org stays focused on the essentials, and the wider ecosy
 one obvious place to be found. The two overlap on purpose, and this organization's admins
 are members of jolt-lang too.
 
-Core-team work lands here directly. [ebb](https://github.com/jlt-commons/ebb) and
-[raylib-android](https://github.com/jlt-commons/raylib-android) were both started in this
+Core-team work lands here directly. [ebb](https://github.com/jlt-commons/ebb),
+[raylib-android](https://github.com/jlt-commons/raylib-android), and
+[ftxui-jolt](https://github.com/jlt-commons/ftxui-jolt) were all started in this
 organization by Jolt's author rather than moved in later, with more expected.
 
 Each project keeps its own maintainers, release cadence and review protocol. What it
