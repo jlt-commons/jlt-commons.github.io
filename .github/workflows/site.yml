@@ -26,10 +26,10 @@ concurrency:
   cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
 env:
-  # v0.4.0 adds nav search (search-documents.json + lazily loaded lunr).
+  # v0.4.1 fixes search-hit styling; v0.4.0 added nav search.
   # v0.3.2 fixes `jolt run build`/`clean` (docs-engine#3); v0.3.1 added
   # heading anchors.
-  DOCS_ENGINE_REF: v0.4.0
+  DOCS_ENGINE_REF: v0.4.1
 
 jobs:
   build:
