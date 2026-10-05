@@ -68,8 +68,9 @@ jobs:
           # root-absolute. That is the opposite of a project site, where a bare
           # /css/... would resolve here instead of inside the project. The
           # check that belongs here is that no project's base path leaked in.
+          # js/ arrived with docs-engine v0.4.0's search.js.
           if grep -ohE '(href|src)="/[a-z-]+/' "$out"/index.html "$out"/guide/*.html \
-               | sort -u | grep -vE '="/(css|img|guide|vendor)/'; then
+               | sort -u | grep -vE '="/(css|img|guide|vendor|js)/'; then
             echo "the paths above are not this site's own"
             exit 1
           fi
