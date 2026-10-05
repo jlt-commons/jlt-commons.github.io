@@ -13,10 +13,13 @@ suggested: the language org stays focused on the essentials, and the wider ecosy
 one obvious place to be found. The two overlap on purpose, and this organization's admins
 are members of jolt-lang too.
 
-Core-team work lands here directly. [ebb](https://github.com/jlt-commons/ebb),
-[raylib-android](https://github.com/jlt-commons/raylib-android), and
-[ftxui-jolt](https://github.com/jlt-commons/ftxui-jolt) were all started in this
-organization by Jolt's author rather than moved in later, with more expected.
+Core-team work lands here directly. Jolt's author has started eight projects in this
+organization rather than moving them in later, among them
+[ebb](https://github.com/jlt-commons/ebb),
+[ensemble](https://github.com/jlt-commons/ensemble) and
+[writ](https://github.com/jlt-commons/writ). Four more of the author's ports, such as
+[instaparse](https://github.com/jlt-commons/instaparse), moved over from jolt-lang.
+The [projects page](projects.html) lists all of them.
 
 Each project keeps its own maintainers, release cadence and review protocol. What it
 gains by being here is shared ground: a documentation site built and published for it, CI

@@ -1,39 +1,63 @@
 # Projects
 
-Twelve. Six arrived by adoption, and six were started here.
+Twenty-four. Six arrived by adoption, four moved over from jolt-lang, and fourteen were
+started here.
 
 | project | what it is | arrived by | docs |
 |---|---|---|---|
-| [raylib-jlt](https://github.com/jlt-commons/raylib-jlt) | 154 [raylib](https://www.raylib.com) examples, calling the system `libraylib` over its C ABI through `jolt.ffi` | adoption | [jlt-commons.github.io/raylib-jlt](https://jlt-commons.github.io/raylib-jlt/) |
+| [raylib-jlt](https://github.com/jlt-commons/raylib-jlt) | [raylib](https://www.raylib.com) bindings that call the system `libraylib` over its C ABI through `jolt.ffi`, with a keyword-argument drawing API on top. Its examples now live in raylib-jolt-demo | adoption | [jlt-commons.github.io/raylib-jlt](https://jlt-commons.github.io/raylib-jlt/) |
+| [raylib-jolt-demo](https://github.com/jlt-commons/raylib-jolt-demo) | 187 raylib examples built on raylib-jlt, each one its own small runnable project | started here | [jlt-commons.github.io/raylib-jolt-demo](https://jlt-commons.github.io/raylib-jolt-demo/) |
 | [raygui-jlt](https://github.com/jlt-commons/raygui-jlt) | 24 examples of raygui, raylib's immediate-mode GUI library, bound the same way | adoption | [jlt-commons.github.io/raygui-jlt](https://jlt-commons.github.io/raygui-jlt/) |
+| [raylib-ios](https://github.com/jlt-commons/raylib-ios) | raylib and SDL2 on a physical iPhone, as portable bytecode with no JIT, since iOS forbids generating code at run time. The platform: host loop, bindings, build and deploy tools | adoption | [jlt-commons.github.io/raylib-ios](https://jlt-commons.github.io/raylib-ios/) |
+| [raylib-ios-demo](https://github.com/jlt-commons/raylib-ios-demo) | What runs on raylib-ios: 137 scenes, each a sub-project that builds an iPhone app of its own, plus a gallery app holding them all | started here | [jlt-commons.github.io/raylib-ios-demo](https://jlt-commons.github.io/raylib-ios-demo/) |
+| [raylib-android](https://github.com/jlt-commons/raylib-android) | raylib on an Android phone as native arm64 code, with no JVM, Kotlin or Java anywhere in the app. Seventeen scenes under an owner loop of about thirty lines | started here | [jlt-commons.github.io/raylib-android](https://jlt-commons.github.io/raylib-android/) |
+| [graviton](https://github.com/jlt-commons/graviton) | A physics game where you place gravitational attractors to steer a ship toward prizes and away from death zones. A Jolt and raylib port of a 2018 ClojureScript game, its field math checked by writ | started here | [the repo](https://github.com/jlt-commons/graviton) |
 | [glitter-core](https://github.com/jlt-commons/glitter-core) | The natives-free two-thirds of glitter: the Replicant-style reconciler and `IRender`/`IMemory` protocols, with no toolkit dependency at all. What glitter, glitter-uikit, and uikit-demo all build on | started here | [jlt-commons.github.io/glitter-core](https://jlt-commons.github.io/glitter-core/) |
 | [glitter](https://github.com/jlt-commons/glitter) | A [Replicant](https://github.com/cjohansen/replicant)-style GTK4 renderer built on glitter-core: one state atom, a pure `state -> hiccup` view, event handlers as data | adoption | [jlt-commons.github.io/glitter](https://jlt-commons.github.io/glitter/) |
 | [glitter-gl](https://github.com/jlt-commons/glitter-gl) | OpenGL geometry, matrices and shaders for glitter, plus a `:gl-area` widget to draw them in | adoption | [jlt-commons.github.io/glitter-gl](https://jlt-commons.github.io/glitter-gl/) |
 | [glitter-uikit](https://github.com/jlt-commons/glitter-uikit) | the same renderer model driving native macOS `NSView` widgets through AppKit, rather than GTK4 | adoption | [jlt-commons.github.io/glitter-uikit](https://jlt-commons.github.io/glitter-uikit/) |
 | [uikit-demo](https://github.com/jlt-commons/uikit-demo) | A demo of glitter-uikit: a hub of live example windows (counter, currency converter, live FX, particle toy) built as a real macOS app bundle | started here | [jlt-commons.github.io/uikit-demo](https://jlt-commons.github.io/uikit-demo/) |
 | [nexus-jolt](https://github.com/jlt-commons/nexus-jolt) | A Jolt port of [nexus](https://github.com/cjohansen/nexus): data-driven action/effect/placeholder dispatch, used today by the glitter family | started here | [jlt-commons.github.io/nexus-jolt](https://jlt-commons.github.io/nexus-jolt/) |
-| [raylib-ios](https://github.com/jlt-commons/raylib-ios) | raylib and SDL2 on a physical iPhone, as portable bytecode with no JIT, since iOS forbids generating code at run time. Forty-eight scenes at 60 fps | adoption | [jlt-commons.github.io/raylib-ios](https://jlt-commons.github.io/raylib-ios/) |
-| [raylib-android](https://github.com/jlt-commons/raylib-android) | raylib on an Android phone as native arm64 code, with no JVM, Kotlin or Java anywhere in the app. Seventeen scenes under an owner loop of about thirty lines | started here | [the repo](https://github.com/jlt-commons/raylib-android) |
-| [ebb](https://github.com/jlt-commons/ebb) | A port of [missionary](https://github.com/leonoel/missionary): composable tasks and flows with real cancellation and glitch-free dataflow, running on Chez fibers | started here | [the repo](https://github.com/jlt-commons/ebb) |
 | [ftxui-jolt](https://github.com/jlt-commons/ftxui-jolt) | A reagent-style API over [FTXUI](https://github.com/ArthurSonzogni/FTXUI), the C++ terminal UI library: components as functions returning hiccup, rendered through FTXUI's own event loop, focus handling and mouse support | started here | [the repo](https://github.com/jlt-commons/ftxui-jolt) |
+| [ebb](https://github.com/jlt-commons/ebb) | A port of [missionary](https://github.com/leonoel/missionary): composable tasks and flows with real cancellation and glitch-free dataflow, running on Chez fibers | started here | [jlt-commons.github.io/ebb](https://jlt-commons.github.io/ebb/) |
+| [ensemble](https://github.com/jlt-commons/ensemble) | Erlang processes and the OTP behaviours on Jolt's native fibers: links, monitors, selective receive, `gen_server`, `gen_statem` and supervisors | started here | [the repo](https://github.com/jlt-commons/ensemble) |
+| [tapestry](https://github.com/jlt-commons/tapestry) | Structured concurrency, where a unit of work is a derefable fiber carrying its result, errors, timeouts and cancellation. A port of [teknql/tapestry](https://github.com/teknql/tapestry) onto `core.async` | from jolt-lang | [the repo](https://github.com/jlt-commons/tapestry) |
+| [duratom](https://github.com/jlt-commons/duratom) | A durable atom that writes every change through to a pluggable backend. A port of [jimpil/duratom](https://github.com/jimpil/duratom) | from jolt-lang | [the repo](https://github.com/jlt-commons/duratom) |
+| [instaparse](https://github.com/jlt-commons/instaparse) | [instaparse](https://github.com/Engelberg/instaparse) on Jolt: parsers from EBNF or ABNF grammars, including left-recursive and ambiguous ones | from jolt-lang | [the repo](https://github.com/jlt-commons/instaparse) |
+| [mulog](https://github.com/jlt-commons/mulog) | The published [mulog](https://github.com/BrunoBonacci/mulog) 0.9.0, with the Java classes it bundles supplied by portable Jolt registrations | from jolt-lang | [the repo](https://github.com/jlt-commons/mulog) |
+| [aws-api-jolt](https://github.com/jlt-commons/aws-api-jolt) | The unmodified [cognitect aws-api](https://github.com/cognitect-labs/aws-api) Maven release running on Jolt. It supplies an HTTP client and a host-class declaration, and nothing is forked | started here | [the repo](https://github.com/jlt-commons/aws-api-jolt) |
+| [clj-to-ys](https://github.com/jlt-commons/clj-to-ys) | Translates Clojure source into idiomatic [YS (YAMLScript)](https://yamlscript.org), built on the instaparse port | started here | [the repo](https://github.com/jlt-commons/clj-to-ys) |
+| [writ](https://github.com/jlt-commons/writ) | Checks plain Clojure against a spec of what the code is for: signatures, plus laws run through test.check. Built as a gate for code an LLM writes | started here | [the repo](https://github.com/jlt-commons/writ) |
+| [lev](https://github.com/jlt-commons/lev) | A decision engine that answers typed questions about a state with calibrated probabilities, using small encoder models or a GGUF chat model through llama.cpp | started here | [the repo](https://github.com/jlt-commons/lev) |
 
 The six adopted ones were transferred rather than forked, so their stars, issues and
 history came with them, and the old URLs still redirect. Each keeps its original
 maintainer. All six are on the shared engine, so their sites live at
 `jlt-commons.github.io/<repo>/`.
 
-Six were started here rather than adopted, by two different people. raylib-android, ebb,
-and ftxui-jolt were all started in this organization by Jolt's author, and all three are
-recent enough that their documentation is still the repo README. glitter-core, uikit-demo,
-and nexus-jolt were started by a different maintainer, extracted from glitter to fix the
-"GTK4 required even though it's never called" limitation glitter-uikit and glitter-gl's
-own READMEs had named as future work — see
-[jlt-commons/meta#1](https://github.com/jlt-commons/meta/issues/1) for the proposal. All
-three are on the shared engine from day one.
+Four came from [jolt-lang](https://github.com/jolt-lang): instaparse, tapestry, duratom
+and mulog. They are Jolt ports of established Clojure libraries that Jolt's author made
+inside the language organization, then transferred here once the split described below
+was agreed. Their `jolt-lang/...` URLs redirect.
 
-raylib-ios is the newest and the odd one out in one respect worth flagging: parts of it
-derive from a demo repository that carries no licence, published while a request for one
-is pending. Its own `NOTICE` says which files and what that means for a fork.
+Fourteen were started here rather than adopted, by two different people. Jolt's author
+started eight of them: raylib-android, ebb, ftxui-jolt, ensemble, writ, lev, clj-to-ys
+and graviton. A different maintainer started the other six. glitter-core, uikit-demo and
+nexus-jolt were extracted from glitter to fix the "GTK4 required even though it's never
+called" limitation glitter-uikit and glitter-gl's own READMEs had named as future work
+(see [jlt-commons/meta#1](https://github.com/jlt-commons/meta/issues/1) for the
+proposal). raylib-jolt-demo and raylib-ios-demo took the examples out of raylib-jlt and
+raylib-ios, so those two repos now hold only the bindings and the platform. aws-api-jolt
+is the sixth.
+
+Thirteen of the twenty-four publish through the shared engine. The rest are recent
+enough that their documentation is still the repo README.
+
+raylib-ios and raylib-ios-demo each carry a `NOTICE` worth reading before a fork. Both
+are EPL 2.0 like the rest of the organization, but three scenes come from
+[jasalt/jolt-android-experiment](https://github.com/jasalt/jolt-android-experiment) under
+MIT, and the raylib ports keep their zlib terms. The `NOTICE` says which files carry
+which licence.
 
 ## The wider ecosystem
 
@@ -63,9 +87,9 @@ That includes Jolt's own author, Dmitri Sotnikov, who put the split plainly:
 > to the commons
 
 So the two organizations are halves of one arrangement the language's author
-suggested, and some [jolt-lang](https://github.com/jolt-lang) projects are expected to
-move here on that basis. It runs the other way as well. ebb and raylib-android were both
-started in this organization by the same author, with more expected. These two adoptions
+suggested, and four [jolt-lang](https://github.com/jolt-lang) projects have since moved
+here on that basis. It runs the other way as well. Eight projects were started in this
+organization by the same author, beginning with ebb and raylib-android. These two adoptions
 were the first test of the arrangement, and the reason the adoption track leads rather
 than incubation.
 
