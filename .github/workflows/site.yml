@@ -13,6 +13,11 @@ on:
     branches: [main]
   pull_request:
   workflow_dispatch:
+    inputs:
+      jolt-version:
+        description: "jolt version to build with for this run (blank uses the JOLT_VERSION pin)"
+        required: false
+        default: ""
 
 permissions:
   contents: read
@@ -32,6 +37,11 @@ env:
   # v0.3.2 fixes `jolt run build`/`clean` (docs-engine#3); v0.3.1 added
   # heading anchors.
   DOCS_ENGINE_REF: v0.4.3
+  # jolt is pinned like every project's JOLT_VERSION (see ci-builds' README,
+  # "The pin convention"), so a jolt release cannot turn this site red on a
+  # tree nobody touched, and the build makes no API call to resolve latest.
+  # A dispatch can try another release without a commit.
+  JOLT_VERSION: ${{ inputs.jolt-version || '0.8.19' }}
 
 jobs:
   build:
@@ -48,6 +58,8 @@ jobs:
 
       - name: Install jolt
         uses: jlt-commons/setup-jolt@v1
+        with:
+          version: ${{ env.JOLT_VERSION }}
 
       - name: Build
         working-directory: .docs-engine
