@@ -119,7 +119,8 @@ does not have to make them alone:
 - **A documentation site, built and published for you.** Write markdown and a
   short config file; [docs-engine](https://github.com/jlt-commons/docs-engine)
   does the rest, and CI deploys on merge. raylib-jlt and raygui-jlt both moved
-  onto it and neither maintains a generator.
+  onto it and neither maintains a generator. Using it is optional, and a project
+  that prefers its own generator, or just a README, is welcome to keep that.
 - **Shared conventions, arrived at once.** How an example is registered, what a
   gate checks, how counts stay honest across a README and a gallery. These are
   small decisions individually and tedious to keep relitigating.
