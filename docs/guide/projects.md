@@ -70,7 +70,7 @@ Thirteen of the thirty-seven publish through the shared engine. The rest are rec
 enough that their documentation is still the repo README.
 
 raylib-ios and raylib-ios-demo each carry a `NOTICE` worth reading before a fork. Both
-are EPL 2.0 like the rest of the organization, but three scenes come from
+are EPL 2.0, but three scenes come from
 [jasalt/jolt-android-experiment](https://github.com/jasalt/jolt-android-experiment) under
 MIT, and the raylib ports keep their zlib terms. The `NOTICE` says which files carry
 which licence.
