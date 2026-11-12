@@ -1,6 +1,6 @@
 # Projects
 
-Twenty-four. Six arrived by adoption, four moved over from jolt-lang, and fourteen were
+Thirty-seven. Six arrived by adoption, four moved over from jolt-lang, and twenty-seven were
 started here.
 
 | project | what it is | arrived by | docs |
@@ -12,6 +12,9 @@ started here.
 | [raylib-ios-demo](https://github.com/jlt-commons/raylib-ios-demo) | What runs on raylib-ios: 137 scenes, each a sub-project that builds an iPhone app of its own, plus a gallery app holding them all | started here | [jlt-commons.github.io/raylib-ios-demo](https://jlt-commons.github.io/raylib-ios-demo/) |
 | [raylib-android](https://github.com/jlt-commons/raylib-android) | raylib on an Android phone as native arm64 code, with no JVM, Kotlin or Java anywhere in the app. Seventeen scenes under an owner loop of about thirty lines | started here | [jlt-commons.github.io/raylib-android](https://jlt-commons.github.io/raylib-android/) |
 | [graviton](https://github.com/jlt-commons/graviton) | A physics game where you place gravitational attractors to steer a ship toward prizes and away from death zones. A Jolt and raylib port of a 2018 ClojureScript game, its field math checked by writ | started here | [the repo](https://github.com/jlt-commons/graviton) |
+| [ents](https://github.com/jlt-commons/ents) | [flecs](https://github.com/SanderMertens/flecs) entity component system bindings with a [vybe](https://github.com/pfeodrippe/vybe)-inspired API: components as plain maps, systems and observers over binding vectors | started here | [the repo](https://github.com/jlt-commons/ents) |
+| [slipstream](https://github.com/jlt-commons/slipstream) | GPU vector rendering through [Slughorn](https://github.com/AlphaPixel/slughorn): a declarative scene compiler, a reference GLFW renderer, and an incremental glimmer backend with gradients, masks, compositing, SDF/MSDF and shader effects | started here | [the repo](https://github.com/jlt-commons/slipstream) |
+| [upbge-jolt](https://github.com/jlt-commons/upbge-jolt) | A Jolt nREPL inside the UPBGE/Blender game engine in place of its Python API, so CIDER, Calva or Cursive can evaluate against the running editor or game | started here | [the repo](https://github.com/jlt-commons/upbge-jolt) |
 | [glitter-core](https://github.com/jlt-commons/glitter-core) | The natives-free two-thirds of glitter: the Replicant-style reconciler and `IRender`/`IMemory` protocols, with no toolkit dependency at all. What glitter, glitter-uikit, and uikit-demo all build on | started here | [jlt-commons.github.io/glitter-core](https://jlt-commons.github.io/glitter-core/) |
 | [glitter](https://github.com/jlt-commons/glitter) | A [Replicant](https://github.com/cjohansen/replicant)-style GTK4 renderer built on glitter-core: one state atom, a pure `state -> hiccup` view, event handlers as data | adoption | [jlt-commons.github.io/glitter](https://jlt-commons.github.io/glitter/) |
 | [glitter-gl](https://github.com/jlt-commons/glitter-gl) | OpenGL geometry, matrices and shaders for glitter, plus a `:gl-area` widget to draw them in | adoption | [jlt-commons.github.io/glitter-gl](https://jlt-commons.github.io/glitter-gl/) |
@@ -19,6 +22,7 @@ started here.
 | [uikit-demo](https://github.com/jlt-commons/uikit-demo) | A demo of glitter-uikit: a hub of live example windows (counter, currency converter, live FX, particle toy) built as a real macOS app bundle | started here | [jlt-commons.github.io/uikit-demo](https://jlt-commons.github.io/uikit-demo/) |
 | [nexus-jolt](https://github.com/jlt-commons/nexus-jolt) | A Jolt port of [nexus](https://github.com/cjohansen/nexus): data-driven action/effect/placeholder dispatch, used today by the glitter family | started here | [jlt-commons.github.io/nexus-jolt](https://jlt-commons.github.io/nexus-jolt/) |
 | [ftxui-jolt](https://github.com/jlt-commons/ftxui-jolt) | A reagent-style API over [FTXUI](https://github.com/ArthurSonzogni/FTXUI), the C++ terminal UI library: components as functions returning hiccup, rendered through FTXUI's own event loop, focus handling and mouse support | started here | [the repo](https://github.com/jlt-commons/ftxui-jolt) |
+| [glimmer-bui](https://github.com/jlt-commons/glimmer-bui) | A backend for [glimmer](https://github.com/jolt-lang/glimmer) over [BUI](https://github.com/ppmpreetham/BUI), Blender's UI as a standalone C library: panels, number sliders, color swatches, with damage-driven rendering that costs nothing while idle | started here | [the repo](https://github.com/jlt-commons/glimmer-bui) |
 | [ebb](https://github.com/jlt-commons/ebb) | A port of [missionary](https://github.com/leonoel/missionary): composable tasks and flows with real cancellation and glitch-free dataflow, running on Chez fibers | started here | [jlt-commons.github.io/ebb](https://jlt-commons.github.io/ebb/) |
 | [ensemble](https://github.com/jlt-commons/ensemble) | Erlang processes and the OTP behaviours on Jolt's native fibers: links, monitors, selective receive, `gen_server`, `gen_statem` and supervisors | started here | [the repo](https://github.com/jlt-commons/ensemble) |
 | [tapestry](https://github.com/jlt-commons/tapestry) | Structured concurrency, where a unit of work is a derefable fiber carrying its result, errors, timeouts and cancellation. A port of [teknql/tapestry](https://github.com/teknql/tapestry) onto `core.async` | from jolt-lang | [the repo](https://github.com/jlt-commons/tapestry) |
@@ -27,8 +31,17 @@ started here.
 | [mulog](https://github.com/jlt-commons/mulog) | The published [mulog](https://github.com/BrunoBonacci/mulog) 0.9.0, with the Java classes it bundles supplied by portable Jolt registrations | from jolt-lang | [the repo](https://github.com/jlt-commons/mulog) |
 | [aws-api-jolt](https://github.com/jlt-commons/aws-api-jolt) | The unmodified [cognitect aws-api](https://github.com/cognitect-labs/aws-api) Maven release running on Jolt. It supplies an HTTP client and a host-class declaration, and nothing is forked | started here | [the repo](https://github.com/jlt-commons/aws-api-jolt) |
 | [clj-to-ys](https://github.com/jlt-commons/clj-to-ys) | Translates Clojure source into idiomatic [YS (YAMLScript)](https://yamlscript.org), built on the instaparse port | started here | [the repo](https://github.com/jlt-commons/clj-to-ys) |
+| [jolt-openldk](https://github.com/jlt-commons/jolt-openldk) | Java libraries from Jolt with no JVM, by loading SBCL with [OpenLDK](https://github.com/atgreen/openldk) into the Jolt process and calling across a small C shim. Alpha | started here | [the repo](https://github.com/jlt-commons/jolt-openldk) |
+| [dodeca](https://github.com/jlt-commons/dodeca) | A port of [A5](https://github.com/felixpalmer/a5), the equal-area pentagonal discrete global grid: indexing, the cell hierarchy, cell measures and grid disks | started here | [the repo](https://github.com/jlt-commons/dodeca) |
 | [writ](https://github.com/jlt-commons/writ) | Checks plain Clojure against a spec of what the code is for: signatures, plus laws run through test.check. Built as a gate for code an LLM writes | started here | [the repo](https://github.com/jlt-commons/writ) |
 | [lev](https://github.com/jlt-commons/lev) | A decision engine that answers typed questions about a state with calibrated probabilities, using small encoder models or a GGUF chat model through llama.cpp | started here | [the repo](https://github.com/jlt-commons/lev) |
+| [augur](https://github.com/jlt-commons/augur) | Statistics for forecasting and learning from outcomes: online Bayesian posteriors with forgetting, calibration, logistic hazards, change-point detection and forecast scoring | started here | [the repo](https://github.com/jlt-commons/augur) |
+| [jolt-metrics](https://github.com/jlt-commons/jolt-metrics) | Code metrics for Clojure, Jolt and Scheme, led by a ranked refactoring queue. Every metric is checked against a writ spec | started here | [the repo](https://github.com/jlt-commons/jolt-metrics) |
+| [overseer](https://github.com/jlt-commons/overseer) | A local-first agent loop: sensors watch the screen, camera or clipboard, lev decides, and a Jolt function acts on the answer | started here | [the repo](https://github.com/jlt-commons/overseer) |
+| [jolt-lsp](https://github.com/jlt-commons/jolt-lsp) | A language server and agent toolset for Jolt projects: one pure engine over an in-memory index, with MCP, JSON CLI and LSP as thin transports | started here | [the repo](https://github.com/jlt-commons/jolt-lsp) |
+| [jolt-nrepl-mcp](https://github.com/jlt-commons/jolt-nrepl-mcp) | An MCP server, written in Jolt, that gives a coding agent a persistent nREPL session: evaluate, reload, run tests, repair syntax and make structural edits | started here | [the repo](https://github.com/jlt-commons/jolt-nrepl-mcp) |
+| [jolt-skills](https://github.com/jlt-commons/jolt-skills) | Agent skills for building on the jolt-lang and jlt-commons stack, from projects and FFI to web, data, GUI, games and concurrency | started here | [the repo](https://github.com/jlt-commons/jolt-skills) |
+| [nrepl-kimi-code-plugin](https://github.com/jlt-commons/nrepl-kimi-code-plugin) | A Kimi Code plugin, written in Jolt, that evaluates in a persistent Jolt nREPL session | started here | [the repo](https://github.com/jlt-commons/nrepl-kimi-code-plugin) |
 
 The six adopted ones were transferred rather than forked, so their stars, issues and
 history came with them, and the old URLs still redirect. Each keeps its original
@@ -40,17 +53,20 @@ and mulog. They are Jolt ports of established Clojure libraries that Jolt's auth
 inside the language organization, then transferred here once the split described below
 was agreed. Their `jolt-lang/...` URLs redirect.
 
-Fourteen were started here rather than adopted, by two different people. Jolt's author
-started eight of them: raylib-android, ebb, ftxui-jolt, ensemble, writ, lev, clj-to-ys
-and graviton. A different maintainer started the other six. glitter-core, uikit-demo and
+Twenty-seven were started here rather than adopted, by two different people. Jolt's author
+started twenty of them. The first eight were raylib-android, ebb, ftxui-jolt, ensemble,
+writ, lev, clj-to-ys and graviton, and since October twelve more have followed: ents,
+slipstream, upbge-jolt, glimmer-bui, dodeca, augur, jolt-metrics, overseer, and four
+pieces of agent and editor tooling in jolt-lsp, jolt-nrepl-mcp, jolt-skills and
+nrepl-kimi-code-plugin. A different maintainer started the other seven. glitter-core, uikit-demo and
 nexus-jolt were extracted from glitter to fix the "GTK4 required even though it's never
 called" limitation glitter-uikit and glitter-gl's own READMEs had named as future work
 (see [jlt-commons/meta#1](https://github.com/jlt-commons/meta/issues/1) for the
 proposal). raylib-jolt-demo and raylib-ios-demo took the examples out of raylib-jlt and
 raylib-ios, so those two repos now hold only the bindings and the platform. aws-api-jolt
-is the sixth.
+and jolt-openldk are the other two.
 
-Thirteen of the twenty-four publish through the shared engine. The rest are recent
+Thirteen of the thirty-seven publish through the shared engine. The rest are recent
 enough that their documentation is still the repo README.
 
 raylib-ios and raylib-ios-demo each carry a `NOTICE` worth reading before a fork. Both
@@ -63,7 +79,7 @@ which licence.
 
 This table is only what's hosted in this organization. For the official jolt-lang
 libraries, JVM and Clojure compatibility, docs and tooling beyond it, see
-[awesome-jolt](https://github.com/jlt-commons/awesome-jolt) — a community-maintained
+[awesome-jolt](https://github.com/jlt-commons/awesome-jolt), a community-maintained
 curated list, itself published through docs-engine at
 [jlt-commons.github.io/awesome-jolt](https://jlt-commons.github.io/awesome-jolt/).
 
@@ -88,7 +104,7 @@ That includes Jolt's own author, Dmitri Sotnikov, who put the split plainly:
 
 So the two organizations are halves of one arrangement the language's author
 suggested, and four [jolt-lang](https://github.com/jolt-lang) projects have since moved
-here on that basis. It runs the other way as well. Eight projects were started in this
+here on that basis. It runs the other way as well. Twenty projects were started in this
 organization by the same author, beginning with ebb and raylib-android. These two adoptions
 were the first test of the arrangement, and the reason the adoption track leads rather
 than incubation.

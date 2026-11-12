@@ -31,7 +31,7 @@
     <p>
       New work started here. Ports of widely used Clojure libraries, and new libraries
       that belong beside the language rather than inside it. Jolt's own author has
-      started eight this way. The bar is a real gap and someone willing to maintain it, which is
+      started twenty this way. The bar is a real gap and someone willing to maintain it, which is
       deliberately low while Jolt is this young.
     </p>
   </article>
@@ -40,10 +40,10 @@
 <section class="projects">
   <h2>Projects</h2>
   <p>
-    Twenty-four so far. Six arrived by adoption, transferred rather than forked, so their
+    Thirty-seven so far. Six arrived by adoption, transferred rather than forked, so their
     history and issues came with them and each kept its original maintainer. Four moved
     over from <a href="https://github.com/jolt-lang">jolt-lang</a>, the split Jolt's
-    author proposed. Fourteen were started here, by two different people.
+    author proposed. Twenty-seven were started here, by two different people.
   </p>
 
   <h3>Graphics and games</h3>
@@ -88,6 +88,18 @@
       a physics game where you place gravitational attractors to steer a ship toward
       prizes and away from death zones. A Jolt and raylib port of a 2018 ClojureScript
       game, with its field math checked by writ.
+    </li>
+    <li>
+      <a href="https://github.com/jlt-commons/ents">ents</a> -
+      <a href="https://github.com/SanderMertens/flecs">flecs</a> entity component system bindings with a <a href="https://github.com/pfeodrippe/vybe">vybe</a>-inspired API: components as plain maps, systems and observers over binding vectors.
+    </li>
+    <li>
+      <a href="https://github.com/jlt-commons/slipstream">slipstream</a> -
+      GPU vector rendering through <a href="https://github.com/AlphaPixel/slughorn">Slughorn</a>: a declarative scene compiler, a reference GLFW renderer, and an incremental glimmer backend with gradients, masks, compositing, SDF/MSDF and shader effects.
+    </li>
+    <li>
+      <a href="https://github.com/jlt-commons/upbge-jolt">upbge-jolt</a> -
+      a Jolt nREPL inside the UPBGE/Blender game engine in place of its Python API, so CIDER, Calva or Cursive can evaluate against the running editor or game.
     </li>
   </ul>
 
@@ -137,6 +149,10 @@
       a reagent-style API over <a href="https://github.com/ArthurSonzogni/FTXUI">FTXUI</a>,
       the C++ terminal UI library: components as functions returning hiccup, rendered
       through FTXUI's own event loop, focus handling and mouse support.
+    </li>
+    <li>
+      <a href="https://github.com/jlt-commons/glimmer-bui">glimmer-bui</a> -
+      a backend for <a href="https://github.com/jolt-lang/glimmer">glimmer</a> over <a href="https://github.com/ppmpreetham/BUI">BUI</a>, Blender's UI as a standalone C library: panels, number sliders, color swatches, with damage-driven rendering that costs nothing while idle.
     </li>
   </ul>
 
@@ -191,6 +207,14 @@
       translates Clojure source into idiomatic <a href="https://yamlscript.org">YS
       (YAMLScript)</a>, built on the instaparse port.
     </li>
+    <li>
+      <a href="https://github.com/jlt-commons/jolt-openldk">jolt-openldk</a> -
+      Java libraries from Jolt with no JVM, by loading SBCL with <a href="https://github.com/atgreen/openldk">OpenLDK</a> into the Jolt process and calling across a small C shim. Alpha.
+    </li>
+    <li>
+      <a href="https://github.com/jlt-commons/dodeca">dodeca</a> -
+      a port of <a href="https://github.com/felixpalmer/a5">A5</a>, the equal-area pentagonal discrete global grid: indexing, the cell hierarchy, cell measures and grid disks.
+    </li>
   </ul>
 
   <h3>Checking and deciding</h3>
@@ -204,6 +228,38 @@
       <a href="https://github.com/jlt-commons/lev">lev</a> -
       a decision engine that answers typed questions about a state with calibrated
       probabilities, using small encoder models or a GGUF chat model through llama.cpp.
+    </li>
+    <li>
+      <a href="https://github.com/jlt-commons/augur">augur</a> -
+      statistics for forecasting and learning from outcomes: online Bayesian posteriors with forgetting, calibration, logistic hazards, change-point detection and forecast scoring.
+    </li>
+    <li>
+      <a href="https://github.com/jlt-commons/jolt-metrics">jolt-metrics</a> -
+      code metrics for Clojure, Jolt and Scheme, led by a ranked refactoring queue. Every metric is checked against a writ spec.
+    </li>
+    <li>
+      <a href="https://github.com/jlt-commons/overseer">overseer</a> -
+      a local-first agent loop: sensors watch the screen, camera or clipboard, lev decides, and a Jolt function acts on the answer.
+    </li>
+  </ul>
+
+  <h3>Agent and editor tooling</h3>
+  <ul>
+    <li>
+      <a href="https://github.com/jlt-commons/jolt-lsp">jolt-lsp</a> -
+      a language server and agent toolset for Jolt projects: one pure engine over an in-memory index, with MCP, JSON CLI and LSP as thin transports.
+    </li>
+    <li>
+      <a href="https://github.com/jlt-commons/jolt-nrepl-mcp">jolt-nrepl-mcp</a> -
+      an MCP server, written in Jolt, that gives a coding agent a persistent nREPL session: evaluate, reload, run tests, repair syntax and make structural edits.
+    </li>
+    <li>
+      <a href="https://github.com/jlt-commons/jolt-skills">jolt-skills</a> -
+      agent skills for building on the jolt-lang and jlt-commons stack, from projects and FFI to web, data, GUI, games and concurrency.
+    </li>
+    <li>
+      <a href="https://github.com/jlt-commons/nrepl-kimi-code-plugin">nrepl-kimi-code-plugin</a> -
+      a Kimi Code plugin, written in Jolt, that evaluates in a persistent Jolt nREPL session.
     </li>
   </ul>
 

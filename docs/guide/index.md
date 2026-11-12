@@ -13,7 +13,7 @@ suggested: the language org stays focused on the essentials, and the wider ecosy
 one obvious place to be found. The two overlap on purpose, and this organization's admins
 are members of jolt-lang too.
 
-Core-team work lands here directly. Jolt's author has started eight projects in this
+Core-team work lands here directly. Jolt's author has started twenty projects in this
 organization rather than moving them in later, among them
 [ebb](https://github.com/jlt-commons/ebb),
 [ensemble](https://github.com/jlt-commons/ensemble) and
