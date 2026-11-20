@@ -49,6 +49,11 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
+      # Node 22 ships on ubuntu-latest, so no setup-node. These cover the
+      # pure functions behind docs/fleet/, which is copied to the site as-is.
+      - name: Test the fleet page
+        run: node --test test/*.test.mjs
+
       - name: Check out the docs engine
         uses: actions/checkout@v7
         with:
@@ -82,9 +87,9 @@ jobs:
           # root-absolute. That is the opposite of a project site, where a bare
           # /css/... would resolve here instead of inside the project. The
           # check that belongs here is that no project's base path leaked in.
-          # js/ arrived with docs-engine v0.4.0's search.js.
+          # js/ arrived with docs-engine v0.4.0's search.js. fleet/ is this site's own page.
           if grep -ohE '(href|src)="/[a-z-]+/' "$out"/index.html "$out"/guide/*.html \
-               | sort -u | grep -vE '="/(css|img|guide|vendor|js)/'; then
+               | sort -u | grep -vE '="/(css|img|guide|vendor|js|fleet)/'; then
             echo "the paths above are not this site's own"
             exit 1
           fi

@@ -20,7 +20,7 @@
  ;; docs/img holds the mark the homepage renders. Engine static assets
  ;; (css, highlight.js, mermaid) come from the engine itself; anything
  ;; belonging to this site lives here.
- :asset-dirs  ["img"]
+ :asset-dirs  ["img" "fleet"]
 
  ;; Relative to docs/templates/.
  :home-template "home.html"}
