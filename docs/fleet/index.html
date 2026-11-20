@@ -63,8 +63,25 @@
       <a href="/" class="brand">jlt-commons</a>
       <ul class="links">
         <li><a href="/">Home</a></li>
+        <li ><a href="/guide/index.html">Docs</a></li>
         <li class="selected"><a href="/fleet/">Fleet</a></li>
         <li><a href="https://github.com/jlt-commons" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li>
+          <div class="nav-search" id="nav-search" data-index="/search-documents.json" data-lunr="/vendor/lunr/lunr.min.js">
+            <button type="button" class="search-toggle" id="search-toggle" aria-label="Open search" aria-expanded="false">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </button>
+            <div class="search-popover">
+              <div class="search-field">
+                <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="search" id="search-input" placeholder="Search docs" autocomplete="off" spellcheck="false" aria-label="Search documentation">
+                <kbd class="search-kbd">/</kbd>
+              </div>
+              <div class="search-results" id="search-results" aria-label="Search results" hidden></div>
+            </div>
+          </div>
+        </li>
+        <li><button class="theme-toggle" type="button" onclick="toggleTheme()" aria-label="Toggle light/dark theme">◐</button></li>
       </ul>
     </div>
   </nav>
@@ -80,5 +97,14 @@
     import { loadAndRender } from "./fleet.js";
     loadAndRender(document.getElementById("fleet-root"));
   </script>
+  <script>
+    function toggleTheme() {
+      var current = document.documentElement.getAttribute("data-theme");
+      var next = current === "light" ? "dark" : "light";
+      try { localStorage.setItem("theme", next); } catch (e) { /* storage blocked: theme just won't persist across reload */ }
+      location.reload();
+    }
+  </script>
+  <script src="/js/search.js"></script>
 </body>
 </html>
