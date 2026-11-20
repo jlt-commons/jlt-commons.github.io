@@ -23,4 +23,7 @@
  :asset-dirs  ["img" "fleet"]
 
  ;; Relative to docs/templates/.
- :home-template "home.html"}
+ :home-template "home.html"
+
+ ;; Extra nav links, after Docs and before GitHub, on every engine page.
+ :nav-links [{:label "Fleet" :href "/fleet/"}]}
