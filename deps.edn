@@ -38,7 +38,7 @@
           (println)
           (println "  git clone" docs-engine-repo "../docs-engine")
           (println)
-          (println "CI does not need this — it checks the engine out itself.")
+          (println "CI does not need this, since it checks the engine out itself.")
           (System/exit 1)))))
 
   site:build {:doc "Generate the site into _site/"
