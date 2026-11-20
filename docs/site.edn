@@ -26,4 +26,5 @@
  :home-template "home.html"
 
  ;; Extra nav links, after Docs and before GitHub, on every engine page.
- :nav-links [{:label "Fleet" :href "/fleet/"}]}
+ :nav-links [{:label "Fleet" :href "/fleet/"}
+             {:label "Dependencies" :href "/fleet/deps.html"}]}

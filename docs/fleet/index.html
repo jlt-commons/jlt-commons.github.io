@@ -55,6 +55,12 @@
     .hist .res { font-weight: 400; }
     .fleet-uncovered { margin-top: 2rem; }
     .fleet-uncovered ul { columns: 16rem; padding-left: 1.2rem; }
+    /* The engine's nav links never wrap, so on a phone the nav made the whole
+       page wider than the screen. Remove once docs-engine wraps them itself. */
+    @media (max-width: 560px) {
+      .site-nav .inner { flex-wrap: wrap; gap: 0.5rem; }
+      .site-nav .links { flex-wrap: wrap; gap: 0.4rem 1rem; padding: 0; margin: 0; }
+    }
   </style>
 </head>
 <body>
@@ -65,6 +71,7 @@
         <li><a href="/">Home</a></li>
         <li ><a href="/guide/index.html">Docs</a></li>
         <li class="selected"><a href="/fleet/">Fleet</a></li>
+        <li><a href="/fleet/deps.html">Dependencies</a></li>
         <li><a href="https://github.com/jlt-commons" target="_blank" rel="noopener noreferrer">GitHub</a></li>
         <li>
           <div class="nav-search" id="nav-search" data-index="/search-documents.json" data-lunr="/vendor/lunr/lunr.min.js">
