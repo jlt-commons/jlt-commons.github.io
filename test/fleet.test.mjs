@@ -96,7 +96,7 @@ test("a pin equal to latest, with or without a v, gets no note", () => {
 });
 
 test("uncovered repos are listed with their reasons", () => {
-  const html = render(status([], { uncovered: [{ name: "instaparse", reason: "no ci.yml" }] }));
+  const html = render(status([project("a", {})], { uncovered: [{ name: "instaparse", reason: "no ci.yml" }] }));
   assert.match(html, /Not in the fleet yet/);
   assert.match(html, /instaparse/);
   assert.match(html, /no ci\.yml/);
