@@ -8,7 +8,10 @@
 // Each library carries the waves its dependents are retagged in after it gets
 // a new tag.
 
-export const DEPS_URL = "https://raw.githubusercontent.com/jlt-commons/ci-builds/status/deps.json";
+// The site's own copy first (the stable URL tools read, refreshed hourly by
+// the site build), then the status branch it is copied from.
+export const DEPS_URL = "/fleet/deps.json";
+export const DEPS_FALLBACK_URL = "https://raw.githubusercontent.com/jlt-commons/ci-builds/status/deps.json";
 export const DEPS_RUNS_PAGE = "https://github.com/jlt-commons/ci-builds/actions/workflows/deps.yml";
 
 const STALE_MS = 26 * 3600 * 1000;
@@ -276,11 +279,14 @@ function selected() {
 }
 
 export async function loadAndRender(rootEl) {
+  const get = async (url) => {
+    const res = await fetch(url, { signal: AbortSignal.timeout(15000) });
+    if (!res.ok) throw new Error(`${url}: HTTP ${res.status}`);
+    return res.json();
+  };
   let graph;
   try {
-    const res = await fetch(DEPS_URL, { signal: AbortSignal.timeout(15000) });
-    if (!res.ok) throw new Error(`${DEPS_URL}: HTTP ${res.status}`);
-    graph = await res.json();
+    graph = await get(DEPS_URL).catch(() => get(DEPS_FALLBACK_URL));
   } catch (e) {
     rootEl.innerHTML = `<p class="fleet-warn" role="alert">The dependency data could not be loaded (${escapeHtml(e && e.message)}). Try again later, or look at the <a href="${DEPS_RUNS_PAGE}">deps runs</a>.</p>`;
     return;
