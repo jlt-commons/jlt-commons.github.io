@@ -48,7 +48,13 @@ function ago(iso, nowMs) {
 }
 
 function safeUrl(u) {
-  return typeof u === "string" && /^https:\/\//.test(u) ? u : null;
+  if (typeof u !== "string") return null;
+  try {
+    const x = new URL(u);
+    return x.protocol === "https:" && x.hostname === "github.com" && !x.username && !x.password ? x.href : null;
+  } catch {
+    return null;
+  }
 }
 
 function link(url, text) {
@@ -120,7 +126,7 @@ function renderHistory(name, history) {
   const h = history && history.schema === 1 && history.projects && history.projects[name];
   if (!h) return "";
   const rows = COLUMNS.map(([key, title]) => {
-    const cells = Array.isArray(h[key]) ? h[key] : [];
+    const cells = Array.isArray(h[key]) ? h[key].filter((c) => c && typeof c === "object") : [];
     const items = cells.length
       ? cells.map((c) => `<li class="res res-${resultClass(c)}">${link(c.run_url, label(c))}${c.installed ? ` <span class="ver">${escapeHtml(c.installed)}</span>` : ""}</li>`).join("")
       : `<li class="dim">no runs yet</li>`;
@@ -155,6 +161,9 @@ export function renderStatus(status, history, lastCheckedISO, nowMs) {
   const stale = staleness(status.generated_at, nowMs) === "stale"
     ? `<p class="fleet-warn" role="alert">This data is stale. It was generated at ${escapeHtml(status.generated_at)}, more than 12 hours ago, so the canary may have stopped. Check the <a href="${CANARY_RUNS_PAGE}">canary runs</a>.</p>`
     : "";
+  if (!status.projects.length) {
+    return `${stale}<p class="fleet-warn" role="alert">The data lists no projects, which points to a problem with the data. Check the <a href="${CANARY_RUNS_PAGE}">canary runs</a>.</p>`;
+  }
   const latest = status.jolt && status.jolt.latest && status.jolt.latest.version;
   const head = COLUMNS.map(([, t]) => `<th scope="col">${escapeHtml(t)}</th>`).join("");
   const rows = status.projects.map((p) => renderRow(p, latest, history)).join("");

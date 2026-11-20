@@ -79,6 +79,8 @@ jobs:
           test -f "$out/guide/index.html" || { echo "no guide page generated"; exit 1; }
           test -f "$out/css/screen.css"   || { echo "static assets missing"; exit 1; }
           test -f "$out/img/mark.svg"     || { echo "the mark was not copied — check :asset-dirs"; exit 1; }
+          test -f "$out/fleet/index.html" && test -f "$out/fleet/fleet.js" \
+            || { echo "the fleet page was not copied — check :asset-dirs"; exit 1; }
 
           ! grep -rq '{{site-base}}' "$out"/index.html "$out"/guide/*.html \
             || { echo "unrendered template variable"; exit 1; }

@@ -182,3 +182,27 @@ test("history strip lists recent results as text, newest first", () => {
 test("without history there is no strip and no crash", () => {
   assert.doesNotMatch(render(status([project("a", {})]), null), /<details/);
 });
+
+test("only github.com https urls become links", () => {
+  for (const u of ["https://evil.example/", "https://github.com.evil.com/x", "https://github.com@evil.com/x", "http://github.com/x"]) {
+    const html = render(status([project("a", { latest: cell("pass", { run_url: u }) })]));
+    assert.ok(!html.includes(`href="${u}"`), u);
+    assert.ok(!/href="https?:\/\/(evil|github\.com[.@])/.test(html), u);
+  }
+  const ok = render(status([project("a", { latest: cell("pass", { run_url: "https://github.com/jlt-commons/a/actions/runs/7" }) })]));
+  assert.match(ok, /href="https:\/\/github\.com\/jlt-commons\/a\/actions\/runs\/7"/);
+});
+
+test("an empty project list is a visible warning, not an empty table", () => {
+  const html = render(status([]));
+  assert.match(html, /role="alert"/);
+  assert.match(html, /lists no projects/);
+  assert.doesNotMatch(html, /<table/);
+});
+
+test("a null history entry is skipped and the rest renders", () => {
+  const h = { schema: 1, projects: { a: { pin: [], latest: [null, cell("fail", { failed_step: "Test" })], nightly: [], adhoc: [] } } };
+  const html = render(status([project("a", {})]), h);
+  assert.match(html, /data-project="a"/);
+  assert.match(html, /fail at Test/);
+});
