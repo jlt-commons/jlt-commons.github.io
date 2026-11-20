@@ -12,6 +12,11 @@ on:
   push:
     branches: [main]
   pull_request:
+  # Hourly, after ci-builds' deps workflow (minute 41) commits a fresh
+  # dependency graph, so /fleet/deps.json follows it. A scheduled run deploys
+  # only when the graph changed.
+  schedule:
+    - cron: "55 * * * *"
   workflow_dispatch:
     inputs:
       jolt-version:
@@ -50,6 +55,8 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      publish: ${{ steps.publish.outputs.publish }}
     steps:
       - uses: actions/checkout@v7
 
@@ -74,6 +81,12 @@ jobs:
         working-directory: .docs-engine
         run: jolt run build "$GITHUB_WORKSPACE"
 
+      # The dependency graph, as JSON for tools as well as the page. See
+      # scripts/fetch-deps.mjs: a bad fetch keeps the deployed copy.
+      - name: Add the dependency graph
+        id: deps
+        run: node scripts/fetch-deps.mjs _site
+
       - name: Check the build
         run: |
           set -euo pipefail
@@ -84,6 +97,7 @@ jobs:
           test -f "$out/css/screen.css"   || { echo "static assets missing"; exit 1; }
           test -f "$out/img/mark.svg"     || { echo "the mark was not copied — check :asset-dirs"; exit 1; }
           test -f "$out/fleet/index.html" && test -f "$out/fleet/fleet.js" \
+            && test -f "$out/fleet/deps.html" && test -f "$out/fleet/deps.js" \
             || { echo "the fleet page was not copied — check :asset-dirs"; exit 1; }
 
           ! grep -rq '{{site-base}}' "$out"/index.html "$out"/guide/*.html \
@@ -109,14 +123,24 @@ jobs:
 
           echo "build looks correct"
 
-      - name: Upload the Pages artifact
+      - name: Decide whether to deploy
+        id: publish
         if: github.ref == 'refs/heads/main'
+        run: |
+          if [ "${{ github.event_name }}" != schedule ] || [ "${{ steps.deps.outputs.changed }}" = true ]; then
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "the dependency graph is unchanged, nothing to deploy"
+          fi
+
+      - name: Upload the Pages artifact
+        if: steps.publish.outputs.publish == 'true'
         uses: actions/upload-pages-artifact@v5
         with:
           path: _site
 
   deploy:
-    if: github.ref == 'refs/heads/main'
+    if: needs.build.outputs.publish == 'true'
     needs: build
     runs-on: ubuntu-latest
     permissions:
