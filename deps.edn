@@ -1,4 +1,5 @@
-;; bb.edn — local preview for the jlt-commons organization site.
+;; deps.edn: local preview for the jlt-commons organization site, run with jolt
+;; (jolt site:build, jolt site:serve, jolt site:clean).
 ;;
 ;; The generator is not here. It lives in jlt-commons/docs-engine, shared
 ;; with every project site in the organization, and CI checks it out at a
@@ -37,13 +38,13 @@
           (println)
           (println "  git clone" docs-engine-repo "../docs-engine")
           (println)
-          (println "CI does not need this — it checks the engine out itself.")
+          (println "CI does not need this, since it checks the engine out itself.")
           (System/exit 1)))))
 
   site:build {:doc "Generate the site into _site/"
               :task (site-task "build")}
 
-  site:serve {:doc "Build, then serve _site/ locally (bb site:serve [port], default 3000)"
+  site:serve {:doc "Build, then serve _site/ locally (jolt site:serve [port], default 3000)"
               :task (site-task "serve" (first *command-line-args*))}
 
   site:clean {:doc "Delete the _site/ build output"

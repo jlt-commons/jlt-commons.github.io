@@ -37,9 +37,9 @@ To preview locally, clone the engine alongside this repo:
 
 ```bash
 git clone https://github.com/jlt-commons/docs-engine ../docs-engine
-bb site:serve    # build, then serve at http://localhost:3000
-bb site:build    # build into _site/ without serving
-bb site:clean    # delete _site/
+jolt site:serve    # build, then serve at http://localhost:3000
+jolt site:build    # build into _site/ without serving
+jolt site:clean    # delete _site/
 ```
 
 `_site/` is generated and is not committed. The tasks print the clone command if

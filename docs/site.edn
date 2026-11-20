@@ -1,7 +1,7 @@
 ;; Configuration for the jlt-commons organization site, read by the shared
 ;; docs-engine (https://github.com/jlt-commons/docs-engine).
 ;;
-;; Build it locally with `bb site:serve`. CI builds and publishes it from
+;; Build it locally with `jolt site:serve`. CI builds and publishes it from
 ;; .github/workflows/site.yml.
 {;; Empty, because this site is served at the domain root,
  ;; https://jlt-commons.github.io. A member project is served at
